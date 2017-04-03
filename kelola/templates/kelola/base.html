@@ -14,9 +14,14 @@
     <body>
         <div class="page-header">
             {% if user.is_authenticated %}
-                <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+                <a href="{% url 'post_new' %}" class="top-menu"> New Knowledge</a>
+
+                {% else %}
+                <a href="{% url 'show_knowledge' %}" class="top-menu">Knowledge</a>
+                <a href="{% url 'show_history' %}" class="top-menu">History</a>
+                <a href="{% url 'show_event' %}" class="top-menu">Event</a>
             {% endif %}
-            <a href="{% url 'show_knowledge' %}" class="top-menu">Knowledge</a>
+
          <h1><a href="/">Postingan</a></h1>
         </div>
         <div class="content container">

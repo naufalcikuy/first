@@ -23,13 +23,14 @@
 <div class="col-md-8">
 
 {% block content %}
-{% for post in posts %}
+{% for knowledge in knowledges %}
 <div class="post">
 <div class="date">
-    <p>published: {{ post.published_date }}</p>
+    <p> Category: {{ knowledge.category }}</p>
+    <p>published: {{ knowledge.published_date }}</p>
     </div>
-    <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-    <p>{{ post.text|linebreaksbr }}</p>
+    <h1><a href="{% url 'post_detail' pk=knowledge.pk %}">{{ knowledge.title }}</a></h1>
+    <p>{{ knowledge.text|linebreaksbr }}</p>
 </div>
 {% endfor %}
 {% endblock %}

@@ -8,17 +8,13 @@
 <body>
 {% block content %}
     <div class="post">
-        {% if post.published_date %}
+        {% if knowledge.published_date %}
             <div class="date">
-                {{ post.published_date }}
+                {{ knowledge.published_date }}
             </div>
         {% endif %}
-            {% if user.is_authenticated %}
-        <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></
-span></a>
-            {% endif %}
-        <h1>{{ post.title }}</h1>
-        <p>{{ post.text|linebreaksbr }}</p>
+        <h1>{{ knowledge.title }}</h1>
+        <p>{{ knowledge.text|linebreaksbr }}</p>
     </div>
 {% endblock %}
 </body>
