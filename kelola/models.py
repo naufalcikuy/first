@@ -14,7 +14,7 @@ class Post(models.Model):
         self.published_date = timezone.now()
         self.save()
 
-    def __str__(self):
+    def __unicode__(self):
         return self.title
 
 class Knowledge(models.Model):
@@ -37,7 +37,7 @@ class Knowledge(models.Model):
         self.published_date = timezone.now()
         self.save()
 
-    def __str__(self):
+    def __unicode__(self):
         return self.title
 
 
@@ -56,9 +56,30 @@ class BabyBio (models.Model):
     created_date = models.DateTimeField(
         default=timezone.now)
 
-
-
-    def __str__(self):
+    def __unicode__(self):
         return self.baby_name
+
+
+class History (models.Model):
+    check_choices = (
+        ('weight', 'Weight'),
+        ('height', 'Height'),
+        ('headcircumference', 'HeadCircumference'),
+        ('immunization', 'Immunization'),
+    )
+    #author = models.ForeignKey=('auth.User')
+    #id_baby = models.AutoField(primary_key=True, unique=True)
+    babyname = models.CharField(max_length=50)
+    check = models.CharField(max_length=30, choices=check_choices)
+    value = models.IntegerField()
+    imun_value = models.CharField(max_length=30)
+    status = models.CharField(max_length=20)
+    created_date = models.DateTimeField(
+            default=timezone.now)
+    published_date = models.DateTimeField(
+            default=timezone.now)
+
+    def __unicode__(self):
+        return self.babyname
 
 # Create your models here.

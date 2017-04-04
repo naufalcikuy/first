@@ -2,6 +2,7 @@ from django.contrib import admin
 from .models import Post
 from .models import Knowledge
 from .models import BabyBio
+from .models import History
 
 class PostAdmin(admin.ModelAdmin):
     list_display = ['author', 'title', 'text', 'created_date', 'published_date']
@@ -22,4 +23,5 @@ class BabyBioAdmin(admin.ModelAdmin):
     list_per_page = 25
 admin.site.register(BabyBio, BabyBioAdmin)
 
+admin.site.register(History)
 # Register your models here.

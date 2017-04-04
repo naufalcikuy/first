@@ -5,6 +5,7 @@ from . import admin
 
 
 urlpatterns = [
+    url(r'^history/$', views.new_history, name='new_history'),
     url(r'^$', views.knowledge_list, name='knowledge_list'),
     url(r'^knowledge/(?P<pk>\d+)/$', views.post_detail, name='post_detail'),
     url(r'^knowledge/new/$', views.post_new, name='post_new'),

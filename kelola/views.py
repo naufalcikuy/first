@@ -5,6 +5,8 @@ from django.utils import timezone
 from .forms import PostForm
 from .models import Post
 from .models import Knowledge
+from .forms import HistoryForm
+from .models import History
 
 
 def knowledge_list(request):
@@ -52,4 +54,18 @@ def show_history(request):
 
 def show_event(request):
     return render(request, 'kelola/show_event.html')
+
+def new_history(request):
+    # history = get_object_or_404(History)
+    if request.method == "POST":
+        form = HistoryForm(request.POST)
+        if form.is_valid():
+            history = form.save(commit=False)
+            history.author = request.user
+            history.published_date = timezone.now()
+            history.save()
+            return redirect('new_history')
+    else:
+        form = HistoryForm()
+    return render(request, 'kelola/new_history.html', {'form': form})
 
