@@ -26,8 +26,7 @@
 HALAMAN KELOLA PENGETAHUAN
 <div>
 		<a href="{% url 'post_new' %}" class="btn btn-default">Tambah Pengetahuan</a>
-		<!--<a href="{% url 'new_knowledge' %}" class="btn btn-default">Edit Pengetahuan</a>
-		<a href="{% url 'delete_knowledge' %}" class="btn btn-default">Hapus Pengetahuan</a>-->
+		
 </div>
 
 <div>
@@ -44,7 +43,7 @@ HALAMAN KELOLA PENGETAHUAN
 			    <td>{{ item.title }}</td> 
 			    <td>{{ item.text }}</td>
 			    <td> <a class=" btn btn-warning" href = "{% url 'edit_knowledge' item.id %}">Edit</a>
-			    	 <button type="button" class= "btn btn-danger" data-toggle="modal" data-target="#myModal{{item.id_baby}}"><span class="glyphicon glyphicon-trash"></span></button>
+			    	 <button type="button" class= "btn btn-danger" data-toggle="modal" data-target="#myModal{{item.id}}"><span class="glyphicon glyphicon-trash"></span></button>
 			    </td>
 			</tr>
 			{% endfor %}  
@@ -57,12 +56,16 @@ HALAMAN KELOLA PENGETAHUAN
 		    	<th>Category</th>
 		    	<th>Title</th> 
 		    	<th>Text</th>
+		    	<th>Action</th>
 		  	</tr>
 			{% for item in knowledges_growing %}
 			<tr>
 			    <td>{{ item.category }} </td>
 			    <td>{{ item.title }}</td> 
 			    <td>{{ item.text }}</td>
+			    <td> <a class=" btn btn-warning" href = "{% url 'edit_knowledge' item.id %}">Edit</a>
+			    	 <button type="button" class= "btn btn-danger" data-toggle="modal" data-target="#myModal{{item.id}}"><span class="glyphicon glyphicon-trash"></span></button>
+			    </td>
 			</tr>
 			{% endfor %}  
 		</table>
@@ -72,12 +75,16 @@ HALAMAN KELOLA PENGETAHUAN
 		    	<th>Category</th>
 		    	<th>Title</th> 
 		    	<th>Text</th>
+		    	<th>Action</th>
 		  	</tr>
 			{% for item in knowledges_development %}
 			<tr>
 			    <td>{{ item.category }} </td>
 			    <td>{{ item.title }}</td> 
 			    <td>{{ item.text }}</td>
+			    <td> <a class=" btn btn-warning" href = "{% url 'edit_knowledge' item.id %}">Edit</a>
+			    	 <button type="button" class= "btn btn-danger" data-toggle="modal" data-target="#myModal{{item.id}}"><span class="glyphicon glyphicon-trash"></span></button>
+			    </td>
 			</tr>
 			{% endfor %}  
 		</table>
@@ -87,16 +94,55 @@ HALAMAN KELOLA PENGETAHUAN
 		    	<th>Category</th>
 		    	<th>Title</th> 
 		    	<th>Text</th>
+		    	<th>Action</th>
 		  	</tr>
 			{% for item in knowledges_immunization %}
 			<tr>
 			    <td>{{ item.category }} </td>
 			    <td>{{ item.title }}</td> 
-			    <td>{{ item.text }}</td>
+			    <td>{{ item.text|slice:":100" }}</td>
+			    <td> <a class=" btn btn-warning" href = "{% url 'edit_knowledge' item.id %}">Edit</a>
+			    	 <button type="button" class= "btn btn-danger" data-toggle="modal" data-target="#myModal{{item.id}}"><span class="glyphicon glyphicon-trash"></span></button>
+			    </td>
 			</tr>
 			{% endfor %}  
 		</table>
 </div>	
+
+
+{% for item in knowledges %}
+
+   		 <!-- Trigger the modal with a button -->
+			
+
+			<!-- Modal -->
+			<div id="myModal{{item.id}}" class="modal fade" role="dialog">
+			  <div class="modal-dialog">
+
+			    <!-- Modal content-->
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal">&times;</button>
+			        <h4 class="modal-title">Modal Header</h4>
+			      </div>
+			      <div class="modal-body">
+			        <p> Apakah anda yakin menghapus pengetahuan untuk
+								<h1>id: {{item.id}}</h1>
+								<h1>title: {{item.title}}</h1>
+								<h1>text: {{item.text}}</h1></p>
+			      </div>
+			      <div class="modal-footer">
+				      	<a href="{% url 'delete_knowledge' item.id %}"><button type="button" class="btn btn-danger">Delete</button></a>
+								<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+			       
+			      </div>
+			    </div>
+
+			  </div>
+			</div>
+		{% endfor %}  
+
+
 {% endblock %}
 </div>
 </div>

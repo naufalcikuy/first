@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% extends 'kelola/base.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail Pengetahuan</title>
+</head>
+<body>
+{% block content %}
+   <table class="table">
+            <tr>
+                <th>Judul</th>
+                <th>Deskripsi</th> 
+                <th>Tanggal Dibuat</th>
+                
+            </tr>
+            
+            <tr>
+                <td>{{ knowledges.title }} </td>
+                <td>{{ knowledges.text }}</td> 
+                <td>{{ knowledges.published_date }}</td>
+                
+                
+            </tr>
+            
+        </table>
+{% endblock %}
+</body>
+</html>

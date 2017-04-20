@@ -30,7 +30,7 @@
                     </div>
 
                     <article class="card__article">
-                        <h1><a href="{% url 'post_detail' pk=knowledge.pk %}">{{ knowledge.title }}</a></h1>
+                        <h1><a href="{% url 'post_detail' id_knowledge=knowledge.id %}">{{ knowledge.title }}</a></h1>
                         <p>{{ knowledge.text|linebreaksbr }}</p>
                     </article>
                 </div>

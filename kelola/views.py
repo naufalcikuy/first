@@ -13,8 +13,8 @@ def knowledge_list(request):
    # post = get_object_or_404(Post, pk = pk)
 
 
-def post_detail(request, pk):
-    knowledge = get_object_or_404(Knowledge, pk=pk)
+def post_detail(request, id_knowledge):
+    knowledge = get_object_or_404(Knowledge, id=id_knowledge)
     return render(request, 'kelola/post_detail.html', {'knowledge': knowledge})
 
 def post_new(request):
@@ -25,7 +25,7 @@ def post_new(request):
             #knowledge.author = request.user
             knowledge.published_date = timezone.now()
             knowledge.save()
-            return redirect('post_detail', pk=knowledge.pk)
+            return redirect('post_detail', id_knowledge=knowledge.id)
     else:
         form = PostForm()
     return render(request, 'kelola/post_edit.html', {'form': form})# Create your views here.
@@ -74,7 +74,8 @@ def show_pengetahuan(request):
     knowledges_growing = Knowledge.objects.all().filter(category="Growing")
     knowledges_development = Knowledge.objects.all().filter(category="Development")
     knowledges_immunization = Knowledge.objects.all().filter(category="Immunization")
-    return render(request, 'kelola/kelola_pengetahuan.tmpl', {'knowledges_health': knowledges_health, 'knowledges_growing': knowledges_growing, 'knowledges_development': knowledges_development, 'knowledges_immunization': knowledges_immunization})
+    knowledges = Knowledge.objects.all()
+    return render(request, 'kelola/kelola_pengetahuan.tmpl', {'knowledges_health': knowledges_health, 'knowledges_growing': knowledges_growing, 'knowledges_development': knowledges_development, 'knowledges_immunization': knowledges_immunization, 'knowledges': knowledges})
 
 def new_knowledge(request):
     knowledges_health = Knowledge.objects.all().filter(category="Health")
@@ -144,6 +145,10 @@ def edit_member(request, id_bayi):
         form = edit_member_form(instance = member_baby)
     return render(request, 'kelola/edit_member.html', {'member_baby': member_baby, 'form': form})
 
+def detail_knowledge(request, id_knowledge):
+    knowledges = get_object_or_404(Knowledge, id=id_knowledge)
+    return render(request, 'kelola/detail_knowledge.html', {'knowledges': knowledges})
+
 def edit_knowledge(request, id_knowledge):
     knowledges = get_object_or_404(Knowledge, id=id_knowledge)
     if request.method=="POST":
@@ -151,10 +156,15 @@ def edit_knowledge(request, id_knowledge):
         if form.is_valid():
             knowledges = form.save(commit = False)
             knowledges.save()
-            return redirect('post_detail', id_knowledge=id_knowledge)
+            return redirect('detail_knowledge', id_knowledge=id_knowledge)
     else:
         form = edit_knowledge_form(instance = knowledges)
     return render(request, 'kelola/edit_knowledge.html', {'knowledges': knowledges, 'form': form})
+
+def delete_knowledge(request, id_knowledge):
+    knowledges = Knowledge.objects.get(id=id_knowledge)
+    knowledges.delete()
+    return redirect('show_pengetahuan')
 
 def delete_member(request, id_bayi):
     member_baby = BabyBio.objects.get(id_baby=id_bayi)
