@@ -1,13 +1,57 @@
 <!DOCTYPE html>
 {% extends 'kelola/base.html' %}
+{% load staticfiles %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Knowledge</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/kelola.css' %}">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 </head>
 <body>
+<div class='page-header'>
+    <h1><a href="/">POSYANDU</a></h1>
+</div>
+
+
+<div class="content container">
+<div class="row">
+<div class="col-md-8">
 {% block content %}
-Coba Halaman Knowledge
+{% for knowledge in knowledges %}
+<div class="wrapper">            
+            <div class="card radius shadowDepth1">
+                <div class="card__content card__padding">
+                   <div class="card__meta">
+                        <p> Category: {{ knowledge.category }}</p>
+                        <p> published: {{ knowledge.published_date }}</p>
+                    </div>
+
+                    <article class="card__article">
+                        <h1><a href="{% url 'post_detail' pk=knowledge.pk %}">{{ knowledge.title }}</a></h1>
+                        <p>{{ knowledge.text|linebreaksbr }}</p>
+                    </article>
+                </div>
+
+                <div class="card__action">
+                    
+                    <div class="card__author">
+                        
+                        <div class="card__author-content">
+                            <p> by: {{ knowledge.author }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</div>
+
+
+{% endfor %}
 {% endblock %}
+</div>
+</div>
+</div>
 </body>
 </html>

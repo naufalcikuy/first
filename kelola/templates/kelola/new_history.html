@@ -6,4 +6,26 @@
         {{ form.as_p }}
         <button type="submit" class="save btn btn-default">Save</button>
     </form>
+
+    <script type="text/javascript">
+    	$("#id_check").change(function() {
+    		var check = $(this).val();
+    		if (check == "immunization"){
+    			$("#id_value").parent().hide();
+    			$("#id_imun_value").parent().show();
+    		}
+    		else{
+    			$("#id_value").parent().show(); 
+    			$("#id_imun_value").parent().hide();
+    		}
+
+
+    	});
+
+    	$(document).ready(function (){
+    		$("#id_value").parent().hide(); 
+    			$("#id_imun_value").parent().hide();
+
+    	}); 
+    </script>
 {% endblock %}

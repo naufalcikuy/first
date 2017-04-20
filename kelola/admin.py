@@ -2,8 +2,7 @@ from django.contrib import admin
 from .models import Post
 from .models import Knowledge
 from .models import BabyBio
-from .models import History
-
+from .models import History, Event
 class PostAdmin(admin.ModelAdmin):
     list_display = ['author', 'title', 'text', 'created_date', 'published_date']
     search_fields = ['title']
@@ -23,5 +22,14 @@ class BabyBioAdmin(admin.ModelAdmin):
     list_per_page = 25
 admin.site.register(BabyBio, BabyBioAdmin)
 
-admin.site.register(History)
+class HistoryAdmin(admin.ModelAdmin):
+	list_display = ['baby','check','value','imun_value','status','created_date','published_date']
+	search_fields = ['check']
+admin.site.register(History, HistoryAdmin)
+
+#class EventAdmin(admin.ModelAdmin):
+
+admin.site.register(Event)
+
+
 # Register your models here.

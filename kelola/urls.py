@@ -13,5 +13,18 @@ urlpatterns = [
     url(r'^show/knowledge$', views.show_knowledge, name='show_knowledge'),
     url(r'^show/history$', views.show_history, name='show_history'),
     url(r'^show/event$', views.show_event, name='show_event'),
+    url(r'^manage/knowledge$', views.show_pengetahuan, name='show_pengetahuan'),
+    url(r'^manage/knowledge/edit$', views.new_knowledge, name='new_knowledge'),
+    url(r'^manage/knowledge/edit/(?P<id_knowledge>[0-9]+)$', views.edit_knowledge, name='edit_knowledge'),
+    url(r'^manage/knowledge/delete$', views.delete_knowledge, name='delete_knowledge'),
+    url(r'^manage/member$', views.show_anggota, name='show_anggota'),
+    url(r'^manage/member/edit/(?P<id_bayi>[0-9]+)/$', views.edit_member, name='edit_member'),
+    url(r'^manage/member/(?P<id_bayi>[0-9]+)/$', views.detail_member, name='detail_member'),
+    url(r'^manage/member/delete/(?P<id_bayi>[0-9]+)/$', views.delete_member, name='delete_member'),
+    url(r'^manage/member/new$', views.new_member, name='new_member'),
+    url(r'^manage/check$', views.show_pemeriksaan, name='show_pemeriksaan'),
+    url(r'^manage/event$', views.show_kegiatan, name='show_kegiatan'),
+    url(r'^manage/event/new$', views.new_event, name='new_event'),
 
-]
+ 
+    ]

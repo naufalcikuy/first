@@ -1,14 +1,145 @@
+
 <!DOCTYPE html>
 {% extends 'kelola/base.html' %}
+{% load staticfiles %}
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>History</title>
+    <title>Kelola Pengetahuan</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/kelola.css' %}">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <!--<meta charset="UTF-8">-->
+
 </head>
 <body>
+<div class='page-header'>
+    <h1><a href="/">Kelola Pengetahuan</a></h1>
+</div>
+
+<div class="content container">
+<div class="row">
+<div class="col-md-8">
+
 {% block content %}
-Halaman History
+HALAMAN KELOLA PENGETAHUAN
+<div>
+<form>
+  Nomor Balita:<br>
+  <input type="text" id="nomorbalita" name="nomorbalita" placeholder="Masukkan Nomor Balita"><br>
+  
+  <a id="filter-baby" class="btn btn-default">Filter</a>
+</form>
+
+
+
+</div>
+
+
+<div>
+		<table class="table">
+			<tr>
+		    	<th>Id Baby</th>
+		    	<th>Check</th> 
+		    	<th>Value</th>
+		    	<th>Status</th>
+		    	<th>Date</th>
+		  	</tr>
+			{% for item in check_height %}
+			<tr>
+			    <td>{{ item.baby.id_baby }} </td>
+			    <td>{{ item.check }} </td> 
+			    <td>{{ item.value }} </td>
+			    <td>{{ item.status }} </td>
+			    <td>{{ item.published_date}} </td>
+			</tr>
+			{% endfor %}  
+		</table>
+</div>
+
+<div>
+		<table class="table">
+			<tr>
+		    	<th>Id Baby</th>
+		    	<th>Check</th> 
+		    	<th>Value</th>
+		    	<th>Status</th>
+		    	<th>Date</th>
+		  	</tr>
+			{% for item in check_weight %}
+			<tr>
+			    <td>{{ item.baby.id_baby }} </td>
+			    <td>{{ item.check }} </td> 
+			    <td>{{ item.value }} </td>
+			    <td>{{ item.status }} </td>
+			    <td>{{ item.published_date}} </td>
+
+			</tr>
+			{% endfor %}  
+		</table>
+</div>
+		<table class="table">
+			<tr>
+		    	<th>Id Baby</th>
+		    	<th>Check</th> 
+		    	<th>Value</th>
+		    	<th>Status</th>
+		    	<th>Date</th>
+		  	</tr>
+			{% for item in check_head %}
+			<tr>
+			    <td>{{ item.baby.id_baby }} </td>
+			    <td>{{ item.check }} </td> 
+			    <td>{{ item.value }} </td>
+			    <td>{{ item.status }} </td>
+			    <td>{{ item.published_date}} </td>
+
+			</tr>
+			{% endfor %}  
+		</table>
+<div>
+		<table class="table">
+			<tr>
+		    	<th>Id Baby</th>
+		    	<th>Check</th> 
+		    	<th>Value</th>
+		    	<th>Status</th>
+		    	<th>Date</th>
+		  	</tr>
+			{% for item in check_immunization %}
+			<tr>
+			    <td>{{ item.baby.id_baby }} </td>
+			    <td>{{ item.check }} </td> 
+			    <td>{{ item.imun_value }} </td>
+			    <td>{{ item.status }} </td>
+			    <td>{{ item.published_date}} </td>
+			</tr>
+			{% endfor %}  
+		</table>
+</div>	
+<script type="text/javascript">
+	$("#filter-baby").click(function(){
+		var nomorbalita = $("#nomorbalita").val();
+		if (nomorbalita){
+			var url = "{% url 'show_history' %}?nomorbalita="+ nomorbalita;
+			window.location.href=url
+		}
+		
+		else{
+			alert('tolong masukkan id baby');
+		}
+		
+	});
+</script>
+
 {% endblock %}
+</div>
+</div>
+</div>
+
 
 </body>
 </html>
+
+

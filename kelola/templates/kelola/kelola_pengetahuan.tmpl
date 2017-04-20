@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+{% extends 'kelola/base.html' %}
+{% load staticfiles %}
+
+<html lang="en">
+<head>
+    <title>Kelola Pengetahuan</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/kelola.css' %}">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <!--<meta charset="UTF-8">-->
+
+</head>
+<body>
+<div class='page-header'>
+    <h1><a href="/">Kelola Pengetahuan</a></h1>
+</div>
+
+<div class="content container">
+<div class="row">
+<div class="col-md-8">
+
+{% block content %}
+HALAMAN KELOLA PENGETAHUAN
+<div>
+		<a href="{% url 'post_new' %}" class="btn btn-default">Tambah Pengetahuan</a>
+		<!--<a href="{% url 'new_knowledge' %}" class="btn btn-default">Edit Pengetahuan</a>
+		<a href="{% url 'delete_knowledge' %}" class="btn btn-default">Hapus Pengetahuan</a>-->
+</div>
+
+<div>
+		<table class="table">
+			<tr>
+		    	<th>Category</th>
+		    	<th>Title</th> 
+		    	<th>Text</th>
+		    	<th>Action</th>
+		  	</tr>
+			{% for item in knowledges_health %}
+			<tr>
+			    <td>{{ item.category }} </td>
+			    <td>{{ item.title }}</td> 
+			    <td>{{ item.text }}</td>
+			    <td> <a class=" btn btn-warning" href = "{% url 'edit_knowledge' item.id %}">Edit</a>
+			    	 <button type="button" class= "btn btn-danger" data-toggle="modal" data-target="#myModal{{item.id_baby}}"><span class="glyphicon glyphicon-trash"></span></button>
+			    </td>
+			</tr>
+			{% endfor %}  
+		</table>
+</div>
+
+<div>
+		<table class="table">
+			<tr>
+		    	<th>Category</th>
+		    	<th>Title</th> 
+		    	<th>Text</th>
+		  	</tr>
+			{% for item in knowledges_growing %}
+			<tr>
+			    <td>{{ item.category }} </td>
+			    <td>{{ item.title }}</td> 
+			    <td>{{ item.text }}</td>
+			</tr>
+			{% endfor %}  
+		</table>
+</div>
+		<table class="table">
+			<tr>
+		    	<th>Category</th>
+		    	<th>Title</th> 
+		    	<th>Text</th>
+		  	</tr>
+			{% for item in knowledges_development %}
+			<tr>
+			    <td>{{ item.category }} </td>
+			    <td>{{ item.title }}</td> 
+			    <td>{{ item.text }}</td>
+			</tr>
+			{% endfor %}  
+		</table>
+<div>
+		<table class="table">
+			<tr>
+		    	<th>Category</th>
+		    	<th>Title</th> 
+		    	<th>Text</th>
+		  	</tr>
+			{% for item in knowledges_immunization %}
+			<tr>
+			    <td>{{ item.category }} </td>
+			    <td>{{ item.title }}</td> 
+			    <td>{{ item.text }}</td>
+			</tr>
+			{% endfor %}  
+		</table>
+</div>	
+{% endblock %}
+</div>
+</div>
+</div>
+
+
+</body>
+</html>
+
+

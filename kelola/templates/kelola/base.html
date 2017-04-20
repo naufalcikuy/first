@@ -7,23 +7,87 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">-->
         <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
         <link rel="stylesheet" href="{% static 'css/kelola.css' %}">
-        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+        <!-- <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css"> -->
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="{% static 'bootstrap/js/jquery.min.js' %}" type="text/javascript"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+        
+        
         <meta charset="UTF-8">
-        <title>Testing Pertama</title>
+        <title>Posyandu</title>
     </head>
     <body>
-        <div class="page-header">
+               <!-- Top menu -->
+        <!--<nav class="navbar" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">Andia - a super cool design agency...</a>
+                </div> -->
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <!--
+                <div class="collapse navbar-collapse" id="top-navbar-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown active">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000">
+                                <i class="fa fa-home"></i><br>Home <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-left" role="menu">
+                                <li class="active"><a href="index.html">Home</a></li>
+                                <li><a href="index-2.html">Home 2</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="portfolio.html"><i class="fa fa-camera"></i><br>Portfolio</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-comments"></i><br>Blog</a>
+                        </li>
+                        <li>
+                            <a href="services.html"><i class="fa fa-tasks"></i><br>Services</a>
+                        </li>
+                        <li>
+                            <a href="about.html"><i class="fa fa-user"></i><br>About</a>
+                        </li>
+                        <li>
+                            <a href="contact.html"><i class="fa fa-envelope"></i><br>Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+-->
+
+
+
+       <div class="page-header">
             {% if user.is_authenticated %}
                 <a href="{% url 'post_new' %}" class="top-menu"> New Knowledge</a>
                 <a href="{% url 'new_history' %}" class="top-menu"> New History</a>
+
+                <a href="{% url 'show_kegiatan' %}" class="top-menu"> Kegiatan</a>
+                <a href="{% url 'show_pemeriksaan' %}" class="top-menu"> Pencatatan Pemeriksaan</a>
+                <a href="{% url 'show_anggota' %}" class="top-menu"> Anggota Balita</a>
+                <a href="{% url 'show_pengetahuan' %}" class="top-menu"> Pengetahuan</a>
+                
+                     
                 {% else %}
-                <a href="{% url 'show_knowledge' %}" class="top-menu">Knowledge</a>
-                <a href="{% url 'show_history' %}" class="top-menu">History</a>
                 <a href="{% url 'show_event' %}" class="top-menu">Event</a>
+                <a href="{% url 'show_history' %}" class="top-menu">History</a>
+                <a href="{% url 'show_knowledge' %}" class="top-menu">Knowledge</a>
+                
             {% endif %}
 
-         <h1><a href="/">Postingan</a></h1>
-        </div>
+         <h1><a href="/">Posyandu</a></h1>
+        </div>-->
         <div class="content container">
             <div class="row">
                 <div class="col-md-8">
@@ -32,5 +96,8 @@
                 </div>
             </div>
         </div>
+
+        
+
     </body>
 </html>

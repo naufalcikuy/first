@@ -1,0 +1,140 @@
+{% extends 'kelola/base.html' %}
+
+{% block content %}
+    <h1>New history</h1>
+    <!--<form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+
+    <script type="text/javascript">
+    $( document).ready(function(){
+    	$("#id_check").change(function() {
+    		var check = $(this).val();
+    		if (check == "immunization"){
+    			$("#id_value").parent().hide();
+    			$("#id_imun_value").parent().show();
+    		}
+    		else{
+    			$("#id_value").parent().show(); 
+    			$("#id_imun_value").parent().hide();
+    		}
+
+
+    	});
+
+    	$(document).ready(function (){
+    		$("#id_value").parent().hide(); 
+    			$("#id_imun_value").parent().hide();
+
+    	}); 
+    }); 
+    </script>
+    -->
+    <div class='isi'>
+<a href="{% url 'new_history' %}" class="btn btn-default">Pencatatan Pemeriksaan</a>
+</div>
+
+    <form>
+      Nomor Balita:<br>
+      <input type="text" id="nomorbalita" name="nomorbalita" placeholder="Masukkan Nomor Balita"><br>
+      <a id="filter-baby" class="btn btn-default">Filter</a>
+    </form>
+
+    <div>
+        <table class="table">
+            <tr>
+                <th>Id Baby</th>
+                <th>Check</th> 
+                <th>Value</th>
+                <th>Status</th>
+                <th>Date</th>
+            </tr>
+            {% for item in check_height %}
+            <tr>
+                <td>{{ item.baby.id_baby }} </td>
+                <td>{{ item.check }} </td> 
+                <td>{{ item.value }} </td>
+                <td>{{ item.status }} </td>
+                <td>{{ item.published_date}} </td>
+            </tr>
+            {% endfor %}  
+        </table>
+</div>
+
+<div>
+        <table class="table">
+            <tr>
+                <th>Id Baby</th>
+                <th>Check</th> 
+                <th>Value</th>
+                <th>Status</th>
+                <th>Date</th>
+            </tr>
+            {% for item in check_weight %}
+            <tr>
+                <td>{{ item.baby.id_baby }} </td>
+                <td>{{ item.check }} </td> 
+                <td>{{ item.value }} </td>
+                <td>{{ item.status }} </td>
+                <td>{{ item.published_date}} </td>
+
+            </tr>
+            {% endfor %}  
+        </table>
+</div>
+        <table class="table">
+            <tr>
+                <th>Id Baby</th>
+                <th>Check</th> 
+                <th>Value</th>
+                <th>Status</th>
+                <th>Date</th>
+            </tr>
+            {% for item in check_head %}
+            <tr>
+                <td>{{ item.baby.id_baby }} </td>
+                <td>{{ item.check }} </td> 
+                <td>{{ item.value }} </td>
+                <td>{{ item.status }} </td>
+                <td>{{ item.published_date}} </td>
+
+            </tr>
+            {% endfor %}  
+        </table>
+<div>
+        <table class="table">
+            <tr>
+                <th>Id Baby</th>
+                <th>Check</th> 
+                <th>Value</th>
+                <th>Status</th>
+                <th>Date</th>
+            </tr>
+            {% for item in check_immunization %}
+            <tr>
+                <td>{{ item.baby.id_baby }} </td>
+                <td>{{ item.check }} </td> 
+                <td>{{ item.imun_value }} </td>
+                <td>{{ item.status }} </td>
+                <td>{{ item.published_date}} </td>
+            </tr>
+            {% endfor %}  
+        </table>
+</div>  
+<script type="text/javascript">
+    $("#filter-baby").click(function(){
+        var nomorbalita = $("#nomorbalita").val();
+        if (nomorbalita){
+            var url = "{% url 'show_pemeriksaan' %}?nomorbalita="+ nomorbalita;
+            window.location.href=url
+        }
+        
+        else{
+            alert('tolong masukkan id baby');
+        }
+        
+    });
+</script>
+
+{% endblock %}
