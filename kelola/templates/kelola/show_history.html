@@ -6,39 +6,58 @@
 <html lang="en">
 <head>
     <title>Kelola Pengetahuan</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="{% static 'css/kelola.css' %}">
-    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    
     <!--<meta charset="UTF-8">-->
+    <!-- Start Page Title -->
 
 </head>
-<body>
-<div class='page-header'>
-    <h1><a href="/">Kelola Pengetahuan</a></h1>
-</div>
 
-<div class="content container">
-<div class="row">
-<div class="col-md-8">
+<body>
+
+
 
 {% block content %}
-HALAMAN KELOLA PENGETAHUAN
-<div>
-<form>
-  Nomor Balita:<br>
-  <input type="text" id="nomorbalita" name="nomorbalita" placeholder="Masukkan Nomor Balita"><br>
-  
-  <a id="filter-baby" class="btn btn-default">Filter</a>
-</form>
+
+	<section class="title">
+        <div class="container">
+            <div class="row-fluid">
+                <div class="span6">
+                    <h1>Riwayat Pemeriksaan</h1>
+                </div>
+                <div class="span6">
+                    <ul class="breadcrumb pull-right">
+                        <li><a href="{% url 'knowledge_list' %}">Beranda</a> <span class="divider">/</span></li>
+                        <li class="active">Riwayat Pemeriksaan</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- / .title -->     
 
 
 
-</div>
+<div class="work-container">
+<div class="container">
+<div class="row">
+
+<div class="gap"></div>
+  <form align="center">
+	      
+	      <input type="number" id="nomorbalita" name="nomorbalita" placeholder="Masukkan Nomor Balita">
+	      <a id="filter-baby" class="btn btn-default">Cari</a>
+		</form>
 
 
-<div>
-		<table class="table">
+
+
+<section id="about-us" class="container main">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="blog">
+
+		<table class="customers">
+		<h2>Pemeriksaan Tinggi Badan</h2>
 			<tr>
 		    	<th>Id Baby</th>
 		    	<th>Check</th> 
@@ -54,12 +73,31 @@ HALAMAN KELOLA PENGETAHUAN
 			    <td>{{ item.status }} </td>
 			    <td>{{ item.published_date}} </td>
 			</tr>
+			{% empty %}
+            	{% if request.GET.nomorbalita %}
+            	<tr>
+                	<td>data tidak tersedia </td>
+                	<td>-</td>
+                	<td>-</td>
+                	<td>-</td>
+                	<td>-</td>
+            	</tr>
+            	{% else %}
+            	<tr>
+                	<td>masukkan nomor bailita </td>
+                	<td>-</td>
+                	<td>-</td>
+                	<td>-</td>
+                	<td>-</td>
+            	</tr>
+            	{% endif %}
 			{% endfor %}  
 		</table>
-</div>
 
-<div>
-		<table class="table">
+
+<div class="gap"></div>
+		<table class="customers">
+		<h2>Pemeriksaan Berat Badan</h2>
 			<tr>
 		    	<th>Id Baby</th>
 		    	<th>Check</th> 
@@ -76,10 +114,29 @@ HALAMAN KELOLA PENGETAHUAN
 			    <td>{{ item.published_date}} </td>
 
 			</tr>
+			{% empty %}
+            	{% if request.GET.nomorbalita %}
+            	<tr>
+                	<td>data tidak tersedia </td>
+                	<td>-</td>
+                	<td>-</td>
+                	<td>-</td>
+                	<td>-</td>
+            	</tr>
+            	{% else %}
+            	<tr>
+                	<td>masukkan nomor bailita </td>
+                	<td>-</td>
+                	<td>-</td>
+                	<td>-</td>
+                	<td>-</td>
+            	</tr>
+            	{% endif %}
 			{% endfor %}  
 		</table>
-</div>
-		<table class="table">
+<div class="gap"></div>
+		<table class="customers">
+		<h2>Pemeriksaan Lingkar Kepala</h2>
 			<tr>
 		    	<th>Id Baby</th>
 		    	<th>Check</th> 
@@ -96,10 +153,29 @@ HALAMAN KELOLA PENGETAHUAN
 			    <td>{{ item.published_date}} </td>
 
 			</tr>
+			{% empty %}
+            	{% if request.GET.nomorbalita %}
+            	<tr>
+                	<td>data tidak tersedia </td>
+                	<td>-</td>
+                	<td>-</td>
+                	<td>-</td>
+                	<td>-</td>
+            	</tr>
+            	{% else %}
+            	<tr>
+                	<td>masukkan nomor bailita </td>
+                	<td>-</td>
+                	<td>-</td>
+                	<td>-</td>
+                	<td>-</td>
+            	</tr>
+            	{% endif %}
 			{% endfor %}  
 		</table>
-<div>
-		<table class="table">
+<div class="gap"></div>
+		<table class="customers">
+		<h2>Imunisasi</h2>
 			<tr>
 		    	<th>Id Baby</th>
 		    	<th>Check</th> 
@@ -115,9 +191,35 @@ HALAMAN KELOLA PENGETAHUAN
 			    <td>{{ item.status }} </td>
 			    <td>{{ item.published_date}} </td>
 			</tr>
+			{% empty %}
+            	{% if request.GET.nomorbalita %}
+            	<tr>
+                	<td>data tidak tersedia </td>
+                	<td>-</td>
+                	<td>-</td>
+                	<td>-</td>
+                	<td>-</td>
+            	</tr>
+            	{% else %}
+            	<tr>
+            		<td>masukkan nomor bailita </td>
+                	<td>-</td>
+                	<td>-</td>
+                	<td>-</td>
+                	<td>-</td>
+            	</tr>
+            	{% endif %}
 			{% endfor %}  
 		</table>
 </div>	
+
+
+</div>
+</div>
+</section>
+<div class="gap"></div>
+
+
 <script type="text/javascript">
 	$("#filter-baby").click(function(){
 		var nomorbalita = $("#nomorbalita").val();
@@ -127,16 +229,16 @@ HALAMAN KELOLA PENGETAHUAN
 		}
 		
 		else{
-			alert('tolong masukkan id baby');
+			alert('tolong masukkan nomor balita');
 		}
 		
 	});
 </script>
-
+</div>
+</div>
+</div>
 {% endblock %}
-</div>
-</div>
-</div>
+
 
 
 </body>

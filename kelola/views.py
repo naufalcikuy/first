@@ -2,14 +2,16 @@ from django.shortcuts import redirect
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from django.http import HttpResponseRedirect
-from .forms import PostForm, HistoryForm, BabyBioForm, edit_member_form, new_event_form, edit_knowledge_form
+from .forms import PostForm, HistoryForm, BabyBioForm, edit_member_form, new_event_form, edit_knowledge_form, edit_event_form
 from .models import Post, Knowledge, BabyBio, History, Event
+from django.contrib.auth.decorators import login_required
 
 
 
 def knowledge_list(request):
-    knowledges = Knowledge.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'kelola/post_list.html', {'knowledges': knowledges})
+    knowledges = Knowledge.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+    events = Event.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+    return render(request, 'kelola/post_list.html', {'knowledges': knowledges, 'events': events})
    # post = get_object_or_404(Post, pk = pk)
 
 
@@ -48,27 +50,29 @@ def post_edit(request, pk):
     return render(request, 'kelola/post_edit.html', {'form': form})
 
 def show_knowledge(request):
-    knowledges = Knowledge.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    knowledges = Knowledge.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     return render(request, 'kelola/show_knowledge.html', {'knowledges': knowledges})
 
 def show_history(request):
-    check_height = History.objects.all().filter(check="height")
-    check_weight = History.objects.all().filter(check="weight")
-    check_head = History.objects.all().filter(check="headcircumference")
-    check_immunization = History.objects.all().filter(check="immunization")
+    check_height = History.objects.none()
+    check_weight = History.objects.none()
+    check_head = History.objects.none()
+    check_immunization = History.objects.none()
 
     nomorbalita= request.GET.get('nomorbalita', None)
     
     if nomorbalita:
-        check_height = check_height.filter(baby_id__id_baby=int(nomorbalita))
-        check_weight = check_weight.filter(baby_id__id_baby=int(nomorbalita))
-        check_head = check_head.filter(baby_id__id_baby=int(nomorbalita))
-        check_immunization = check_immunization.filter(baby_id__id_baby=int(nomorbalita))
+        check_height = History.objects.filter(check="height").filter(baby_id__id_baby=int(nomorbalita))
+        check_weight = History.objects.filter(check="weight").filter(baby_id__id_baby=int(nomorbalita))
+        check_head = History.objects.filter(check="headcircumference").filter(baby_id__id_baby=int(nomorbalita))
+        check_immunization = History.objects.filter(check="immunization").filter(baby_id__id_baby=int(nomorbalita))
     return render(request, 'kelola/show_history.html', {'check_height': check_height, 'check_weight': check_weight, 'check_head': check_head, 'check_immunization': check_immunization})
 
 def show_event(request):
-    return render(request, 'kelola/show_event.html')
+    events = Event.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+    return render(request, 'kelola/show_event.html', {'events': events})
 
+@login_required(login_url='/admin/login/')
 def show_pengetahuan(request):
     knowledges_health = Knowledge.objects.all().filter(category="Health")
     knowledges_growing = Knowledge.objects.all().filter(category="Growing")
@@ -104,7 +108,6 @@ def show_pemeriksaan(request):
         check_weight = check_weight.filter(baby_id__id_baby=int(nomorbalita))
         check_head = check_head.filter(baby_id__id_baby=int(nomorbalita))
         check_immunization = check_immunization.filter(baby_id__id_baby=int(nomorbalita))
-    
     '''if request.method == "POST":
         form = HistoryForm(request.POST)
         if form.is_valid():
@@ -117,12 +120,12 @@ def show_pemeriksaan(request):
             #itung
     else:
         form = HistoryForm()
-        '''
+        '''  
 
-
-    return render(request, 'kelola/kelola_pemeriksaan.html', {'check_height':check_height, 'check_weight':check_weight, 'check_head':check_head,'check_immunization':check_immunization,})
+    return render(request, 'kelola/kelola_pemeriksaan.html', {'check_height': check_height, 'check_weight': check_weight, 'check_head': check_head, 'check_immunization': check_immunization})
     
 
+    
 def show_anggota(request):
     member_baby = BabyBio.objects.all()
     return render(request, 'kelola/kelola_anggota.html', {'member_baby': member_baby})
@@ -139,6 +142,7 @@ def edit_member(request, id_bayi):
         form = edit_member_form(request.POST, instance = member_baby)
         if form.is_valid():
             member_baby = form.save(commit = False)
+            member_baby.published_date = timezone.now()
             member_baby.save()
             return redirect('detail_member', id_bayi=id_bayi)
     else:
@@ -160,6 +164,28 @@ def edit_knowledge(request, id_knowledge):
     else:
         form = edit_knowledge_form(instance = knowledges)
     return render(request, 'kelola/edit_knowledge.html', {'knowledges': knowledges, 'form': form})
+
+def detail_event(request, id_event):
+    events = get_object_or_404(Event, id=id_event)
+    return render(request, 'kelola/detail_event.html', {'events': events})
+
+def edit_event(request, id_event):
+    events = get_object_or_404(Event, id=id_event)
+    if request.method=="POST":
+        form = edit_event_form (request.POST, instance = events)
+        if form.is_valid():
+            events = form.save(commit = False)
+            events.published_date = timezone.now()
+            events.save()
+            return redirect('detail_event', id_event=id_event)
+    else:
+        form = edit_event_form(instance = events)
+    return render(request, 'kelola/edit_event.html', {'events': events, 'form': form})
+
+def delete_event(request, id_event):
+    events = Event.objects.get(id=id_event)
+    events.delete()
+    return redirect('show_kegiatan')
 
 def delete_knowledge(request, id_knowledge):
     knowledges = Knowledge.objects.get(id=id_knowledge)
@@ -198,7 +224,10 @@ def new_event(request):
 
 
 def show_kegiatan(request):
-    return render(request, 'kelola/kelola_kegiatan.html')
+    events = Event.objects.all()
+    return render(request, 'kelola/kelola_kegiatan.html', {'events': events})
+    
+    
 
 def new_history(request):
     # history = get_object_or_404(History)

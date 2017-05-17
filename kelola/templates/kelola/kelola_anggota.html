@@ -1,80 +1,104 @@
 
-<!DOCTYPE html>
 {% extends 'kelola/base.html' %}
 {% load staticfiles %}
 
-<html lang="en">
-<head>
-    <title>Anggota Balita</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="{% static 'css/kelola.css' %}">
-    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-    <!--<meta charset="UTF-8">-->
 
-</head>
-<body>
-<div class='page-header'>
-    <h1><a href="/">Pendaftaran Anggota Balita</a></h1>
-</div>
 
-<div class="content container">
-<div class="row">
-<div class="col-md-8">
 
 {% block content %}
-HALALAMAN DAFTAR ANGGOTA BALITA
 
-<div class='isi'>
-<a href="{% url 'new_member' %}" class="btn btn-default">Tambah Anggota Balita</a>
+<section class="title">
+        <div class="container">
+            <div class="row-fluid">
+                <div class="span6">
+                    <h1>Kelola Anggota Balita</h1>
+                </div>
+                <div class="span6">
+                    <ul class="breadcrumb pull-right">
+                        <li><a href="{% url 'knowledge_list' %}"><h4>Beranda / </h4></a> </li>
+                        <li class="active"><h5>Kelola Anggota Balita</h5></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- / .title -->  
+
+<div class="gap"></div>
+<section id="recent-events">
+    <div class="container">
+        <div class="center">
+            <h3>Pendaftaran Anggota Balita</h3>
+            <p class="lead"></p>
+        </div>  
+
+        <div class="center">
+		<a href="{% url 'new_member' %}" class="btn btn-default">Tambah Anggota Balita</a>
+		
 </div>
+    </div>
+
+</section>
+
+
+
+
+<section id="about-us" class="container main">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="blog">
+	                <div class="center">
+						<h2>Anggota Balita Terdaftar</h2>
+					</div>
+					<table class="customers" >
+					
+						<tr>
+					    	<th>No Balita</th>
+					    	<th>Nama Bayi</th> 
+					    	<th>Tanggal Lahir</th>
+					    	<th>Nama Ibu</th>
+					    	<th>Nama Ayah</th>
+					    	<th style="max-width: 5px;">Alamat</th>
+					    	<th>Berat Badan</th>
+					    	<th>Tinggi Badan</th>
+					    	<th>Lingkar Kepala</th>
+					    	<th>Tanggal Daftar</th>
+					    	<th>Tindakan</th>
+					  	</tr>
+						{% for item in member_baby %}
+						<tr>
+						    <td>{{ item.id_baby }} </td>
+						    <td>{{ item.baby_name }}</td> 
+						    <td>{{ item.date_birth }}</td>
+						    <td>{{ item.mother_name }} </td>
+						    <td>{{ item.father_name }}</td> 
+						    <td>{{ item.address|slice:":30" }}...</td>
+						    <td>{{ item.weight_birth }} </td>
+						    <td>{{ item.height_birth }}</td> 
+						    <td>{{ item.headcircumference_birth }}</td>
+						    <td>{{ item.created_date }}</td>
+						    <td> <a class=" btn btn-warning" href = "{% url 'edit_member' item.id_baby %}">Edit</a>
+						    	 <button type="button" class= "btn btn-danger" data-toggle="modal" data-target="#myModal{{item.id_baby}}"><span class="glyphicon glyphicon-trash">Hapus</span></button>
+						    </td>
+						</tr>
+
+						{% endfor %}  
+					</table>
+				</div>
+			</div>	
+		</div>
+	</div>
+</section>
+		
 
 <div>
-<table class="table">
-			<tr>
-		    	<th>Id Baby</th>
-		    	<th>Baby Name</th> 
-		    	<th>Date Birth</th>
-		    	<th>Mother Name</th>
-		    	<th>Father Name</th>
-		    	<th>Address</th>
-		    	<th>Weight Birth</th>
-		    	<th>Height Birth</th>
-		    	<th>Head Circumference Birth</th>
-		    	<th> Created Date</th>
-		    	<th> Action </th>
-		  	</tr>
-			{% for item in member_baby %}
-			<tr>
-			    <td>{{ item.id_baby }} </td>
-			    <td>{{ item.baby_name }}</td> 
-			    <td>{{ item.date_birth }}</td>
-			    <td>{{ item.mother_name }} </td>
-			    <td>{{ item.father_name }}</td> 
-			    <td>{{ item.address }}</td>
-			    <td>{{ item.weight_birth }} </td>
-			    <td>{{ item.height_birth }}</td> 
-			    <td>{{ item.headcircumference_birth }}</td>
-			    <td>{{ item.created_date }}</td>
-			    <td> <a class=" btn btn-warning" href = "{% url 'edit_member' item.id_baby %}">Edit</a>
-			    	 <button type="button" class= "btn btn-danger" data-toggle="modal" data-target="#myModal{{item.id_baby}}"><span class="glyphicon glyphicon-trash"></span></button>
-			    </td>
-			</tr>
-
-			{% endfor %}  
-		</table>
-</div>
-
 		{% for item in member_baby %}
 
-   		 <!-- Trigger the modal with a button -->
-			
-
-			<!-- Modal -->
-			<div id="myModal{{item.id_baby}}" class="modal fade" role="dialog">
+   		 
+			<div id="myModal{{item.id_baby}}" class="modal fade" role="dialog" style="display: none;">
 			  <div class="modal-dialog">
 
-			    <!-- Modal content-->
+		
 			    <div class="modal-content">
 			      <div class="modal-header">
 			        <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -86,8 +110,8 @@ HALALAMAN DAFTAR ANGGOTA BALITA
 								<h1>nama bayi: {{item.baby_name}}</h1></p>
 			      </div>
 			      <div class="modal-footer">
-				      	<a href="{% url 'delete_member' item.id_baby %}"><button type="button" class="btn btn-danger">Delete</button></a>
-								<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+				      	<a href="{% url 'delete_member' item.id_baby %}"><button type="button" class="btn btn-danger">Hapus</button></a>
+								<button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
 			       
 			      </div>
 			    </div>
@@ -95,15 +119,6 @@ HALALAMAN DAFTAR ANGGOTA BALITA
 			  </div>
 			</div>
 		{% endfor %}  
-
-
+</div>
 {% endblock %}
-</div>
-</div>
-</div>
-
-
-</body>
-</html>
-
 

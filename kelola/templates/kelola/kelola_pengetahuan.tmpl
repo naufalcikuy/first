@@ -1,113 +1,135 @@
 
-<!DOCTYPE html>
 {% extends 'kelola/base.html' %}
 {% load staticfiles %}
 
-<html lang="en">
-<head>
-    <title>Kelola Pengetahuan</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="{% static 'css/kelola.css' %}">
-    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-    <!--<meta charset="UTF-8">-->
-
-</head>
-<body>
-<div class='page-header'>
-    <h1><a href="/">Kelola Pengetahuan</a></h1>
-</div>
-
-<div class="content container">
-<div class="row">
-<div class="col-md-8">
-
 {% block content %}
-HALAMAN KELOLA PENGETAHUAN
-<div>
+
+<section class="title">
+        <div class="container">
+            <div class="row-fluid">
+                <div class="span6">
+                    <h1>Kelola Pengetahuan</h1>
+                </div>
+                <div class="span6">
+                    <ul class="breadcrumb pull-right">
+                        <li><a href="{% url 'knowledge_list' %}"><h4>Beranda / </h4></a> </li>
+                        <li class="active"><h5>Kelola Pengetahuan</h5></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- / .title -->    
+
+<div class="gap"></div>
+<section id="recent-events">
+    <div class="container">
+        <div class="center">
+            <h3>Penambahan Pengetahuan</h3>
+            <p class="lead"></p>
+        </div>  
+
+        <div class="center">
 		<a href="{% url 'post_new' %}" class="btn btn-default">Tambah Pengetahuan</a>
 		
 </div>
+    </div>
 
-<div>
-		<table class="table">
+</section>
+
+<section id="about-us" class="container main">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="blog">
+
+		<table class="customers">
+		<h2>Kesehatan</h2>
 			<tr>
-		    	<th>Category</th>
-		    	<th>Title</th> 
-		    	<th>Text</th>
-		    	<th>Action</th>
+		    	<th style="width: 10%">Category</th>
+		    	<th style="width: 35%">Title</th> 
+		    	<th style="width: 35%">Text</th>
+		    	<th style="width: 20%">Action</th>
 		  	</tr>
 			{% for item in knowledges_health %}
 			<tr>
 			    <td>{{ item.category }} </td>
 			    <td>{{ item.title }}</td> 
-			    <td>{{ item.text }}</td>
+			    <td>{{ item.text|slice:":60" }} ... </td>
 			    <td> <a class=" btn btn-warning" href = "{% url 'edit_knowledge' item.id %}">Edit</a>
-			    	 <button type="button" class= "btn btn-danger" data-toggle="modal" data-target="#myModal{{item.id}}"><span class="glyphicon glyphicon-trash"></span></button>
+			    	 <button type="button" class= "btn btn-danger" data-toggle="modal" data-target="#myModal{{item.id}}"><span class="glyphicon glyphicon-trash">Hapus</span></button>
 			    </td>
 			</tr>
 			{% endfor %}  
 		</table>
-</div>
 
-<div>
-		<table class="table">
+
+
+		<table class="customers" width="100%">
+		<h2>Pertumbuhan</h2>
 			<tr>
-		    	<th>Category</th>
-		    	<th>Title</th> 
-		    	<th>Text</th>
-		    	<th>Action</th>
+		    	<th style="width: 10%">Category</th>
+		    	<th style="width: 35%">Title</th> 
+		    	<th style="width: 35%">Text</th>
+		    	<th style="width: 20%">Action</th>
 		  	</tr>
 			{% for item in knowledges_growing %}
 			<tr>
 			    <td>{{ item.category }} </td>
 			    <td>{{ item.title }}</td> 
-			    <td>{{ item.text }}</td>
+			    <td>{{ item.text|slice:":60" }} ... </td>
 			    <td> <a class=" btn btn-warning" href = "{% url 'edit_knowledge' item.id %}">Edit</a>
-			    	 <button type="button" class= "btn btn-danger" data-toggle="modal" data-target="#myModal{{item.id}}"><span class="glyphicon glyphicon-trash"></span></button>
+			    	 <button type="button" class= "btn btn-danger" data-toggle="modal" data-target="#myModal{{item.id}}"><span class="glyphicon glyphicon-trash">Hapus</span></button>
 			    </td>
 			</tr>
 			{% endfor %}  
 		</table>
-</div>
-		<table class="table">
+
+		<table class="customers" width=100%>
+		<h2>Perkembangan</h2>
 			<tr>
-		    	<th>Category</th>
-		    	<th>Title</th> 
-		    	<th>Text</th>
-		    	<th>Action</th>
+		    	<th style="width: 10%">Category</th>
+		    	<th style="width: 35%">Title</th> 
+		    	<th style="width: 35%">Text</th>
+		    	<th style="width: 20%">Action</th>
 		  	</tr>
 			{% for item in knowledges_development %}
 			<tr>
 			    <td>{{ item.category }} </td>
 			    <td>{{ item.title }}</td> 
-			    <td>{{ item.text }}</td>
+			    <td>{{ item.text|slice:":60" }} ... </td>
 			    <td> <a class=" btn btn-warning" href = "{% url 'edit_knowledge' item.id %}">Edit</a>
-			    	 <button type="button" class= "btn btn-danger" data-toggle="modal" data-target="#myModal{{item.id}}"><span class="glyphicon glyphicon-trash"></span></button>
+			    	 <button type="button" class= "btn btn-danger" data-toggle="modal" data-target="#myModal{{item.id}}"><span class="glyphicon glyphicon-trash">Hapus</span></button>
 			    </td>
 			</tr>
 			{% endfor %}  
 		</table>
-<div>
-		<table class="table">
+
+		<table class="customers" width=100%>
+		<h2>Imunisasi</h2>
 			<tr>
-		    	<th>Category</th>
-		    	<th>Title</th> 
-		    	<th>Text</th>
-		    	<th>Action</th>
+		    	<th style="width: 10%">Category</th>
+		    	<th style="width: 35%">Title</th> 
+		    	<th style="width: 35%">Text</th>
+		    	<th style="width: 20%">Action</th>
 		  	</tr>
 			{% for item in knowledges_immunization %}
 			<tr>
 			    <td>{{ item.category }} </td>
 			    <td>{{ item.title }}</td> 
-			    <td>{{ item.text|slice:":100" }}</td>
+			    <td>{{ item.text|slice:":60" }} ... </td>
 			    <td> <a class=" btn btn-warning" href = "{% url 'edit_knowledge' item.id %}">Edit</a>
-			    	 <button type="button" class= "btn btn-danger" data-toggle="modal" data-target="#myModal{{item.id}}"><span class="glyphicon glyphicon-trash"></span></button>
+			    	 <button type="button" class= "btn btn-danger" data-toggle="modal" data-target="#myModal{{item.id}}"><span class="glyphicon glyphicon-trash">Hapus</span></button>
 			    </td>
 			</tr>
 			{% endfor %}  
 		</table>
+
 </div>	
+
+
+</div>
+</div>
+</section>
 
 
 {% for item in knowledges %}
@@ -116,7 +138,7 @@ HALAMAN KELOLA PENGETAHUAN
 			
 
 			<!-- Modal -->
-			<div id="myModal{{item.id}}" class="modal fade" role="dialog">
+			<div id="myModal{{item.id}}" class="modal fade" role="dialog" style="display: none">
 			  <div class="modal-dialog">
 
 			    <!-- Modal content-->
@@ -132,8 +154,8 @@ HALAMAN KELOLA PENGETAHUAN
 								<h1>text: {{item.text}}</h1></p>
 			      </div>
 			      <div class="modal-footer">
-				      	<a href="{% url 'delete_knowledge' item.id %}"><button type="button" class="btn btn-danger">Delete</button></a>
-								<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+				      	<a href="{% url 'delete_knowledge' item.id %}"><button type="button" class="btn btn-danger">Hapus</button></a>
+								<button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
 			       
 			      </div>
 			    </div>
@@ -144,12 +166,5 @@ HALAMAN KELOLA PENGETAHUAN
 
 
 {% endblock %}
-</div>
-</div>
-</div>
-
-
-</body>
-</html>
 
 

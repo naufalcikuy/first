@@ -15,13 +15,15 @@ class BabyBioForm(forms.ModelForm):
         date_birth = forms.DateField(widget=SelectDateWidget())
         fields = ('baby_name', 'jenis_kelamin', 'date_birth', 'address', 'mother_name', 'father_name', 'weight_birth', 'height_birth', 'headcircumference_birth', 'parent_email',)
 
-
-
-
 class HistoryForm(forms.ModelForm):
     class Meta:
         model = History
         fields = ('baby','check', 'value', 'imun_value')
+
+class new_event_form(forms.ModelForm):
+    class Meta:
+        model = Event
+        fields = ('title', 'description', 'date_event',)
 
 class edit_member_form(forms.ModelForm):
     class Meta:
@@ -34,8 +36,11 @@ class edit_knowledge_form(forms.ModelForm):
         model = Knowledge        
         fields = ('title', 'text')
 
-class new_event_form(forms.ModelForm):
+class edit_event_form(forms.ModelForm):
     class Meta:
-        model = Event
-        fields = ('title', 'description', 'date_event',)
+        model = Event       
+        fields = ('title', 'description', 'date_event')
+
+
+
 

@@ -1,36 +1,377 @@
-
 <!DOCTYPE html>
 {% extends 'kelola/base.html' %}
-{% load staticfiles %}
 
+{% load staticfiles %}
 <html lang="en">
 <head>
-    <title>Testing Pertama</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="{% static 'css/kelola.css' %}">
-    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-    <!--<meta charset="UTF-8">-->
+
+	<!-- start: Mobile Specific -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- end: Mobile Specific -->
+
+<link rel="stylesheet" href="{% static 'css-template/css/main.css' %}">
 
 </head>
 <body>
-<div class='page-header'>
-    <h1><a href="/">POSYANDU</a></h1>
-</div>
+	
+	
+	
+	<!-- start: Slider -->
+	{% block content %}
+	<!--Slider-->
+    <section id="slide-show">
+     <div id="slider" class="sl-slider-wrapper">
 
-<div class="content container">
-<div class="row">
-<div class="col-md-8">
+        <!--Slider Items-->    
+        <div class="sl-slider">
+            <!--Slider Item1-->
+            <div class="sl-slide item1" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
+                <div class="sl-slide-inner">
+                    <div class="container">
+                        <img class="pull-right" src="{% static 'css-template/images/sample/slider/img1.png' %}" alt="" />
+                        <h2>Sistem Manajemen Pengetahuan</h2>
+                        <h3 class="gap">Posyandu RW 16 Kelurahan Jatimulya</h3>
+                        <!-- <a class="btn btn-large btn-transparent" href="#">Learn More</a> -->
+                    </div>
+                </div>
+            </div>
+            <!--/Slider Item1-->
 
-{% block content %}
-HALAMAN HOME
-{% endblock %}
-</div>
-</div>
-</div>
+            <!--Slider Item2-->
+            <div class="sl-slide item2" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
+                <div class="sl-slide-inner">
+                    <div class="container">
+                        <img class="pull-right" src="{% static 'css-template/images/sample/slider/img2.png' %}" alt="" />
+                        <h2>Fitur - Fitur</h2>
+                        <h3 class="gap">Pengetahuan &amp; Riwayat Pemeriksaan &amp; Jadwal Kegiatan</h3>
+                        <!-- <a class="btn btn-large btn-transparent" href="#">Learn More</a> -->
+                    </div>
+                </div>
+            </div>
+            <!--Slider Item2-->
 
+            <!--Slider Item3-->
+            <div class="sl-slide item3" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
+                <div class="sl-slide-inner">
+                   <div class="container">
+                    <img class="pull-right" src="{% static 'css-template/images/sample/slider/img3.png' %}" alt="" />
+                    <h2>Kelebihan Website</h2>
+                    <h3 class="gap">Mudah digunakan & Digitalisasi Pengetahuan & Responsive</h3>
+                    <!-- <a class="btn btn-large btn-transparent" href="#">Learn More</a> -->
+                </div>
+            </div>
+        </div>
+        <!--Slider Item3-->
+
+    </div>
+    <!--/Slider Items-->
+
+    <!--Slider Next Prev button-->
+    <nav id="nav-arrows" class="nav-arrows">
+        <span class="nav-arrow-prev"><i class="icon-angle-left"></i></span>
+        <span class="nav-arrow-next"><i class="icon-angle-right"></i></span> 
+    </nav>
+    <!--/Slider Next Prev button-->
+
+</div>
+<!-- /slider-wrapper -->           
+</section>
+<!--/Slider-->
+	
+
+			
+	<!--Services-->
+<section id="services">
+    <div class="container">
+        <div class="center gap">
+            <h3>Apa layanan yang dapat kami berikan kepada anda</h3>
+            <p class="lead">Silahkan lihat jawabannya di bawah ini</p>
+        </div>
+
+        <div class="row-fluid">
+            <div class="span4">
+                <div class="media">
+                    <div class="pull-left">
+                        <i class="icon-globe icon-medium"></i>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Pengetahuan</h4>
+                        <p>Pada website Posyandu RW 16 Keluarahan Jatimulya, anda dapat melihat pengetahuan yang kami berikan pada website ini. Pengetahuan meliputi Pertumbuhan, Perkembangan, Kesehatan dan Imunisasi tentang anak usia balita.</p>
+                    </div>
+                </div>
+            </div>            
+
+            <div class="span4">
+                <div class="media">
+                    <div class="pull-left">
+                        <i class="icon-thumbs-up-alt icon-medium"></i>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Riwayat Pemeriksaan</h4>
+                        <p>Pada website Posyandu RW 16 Kelurahan Jatimulya, anda dapat melihat riwayat pemeriksaan anak balita anda yang melakukan pemeriksaan di Posyandu RW 16 Kelurahan Jatimulya. Pemeriksaan yang dilakukan antara lain berat badan, tinggi badan, lingkar kepala dan pencatatan imunisasi. </p>
+                    </div>
+                </div>
+            </div>            
+
+            <div class="span4">
+                <div class="media">
+                    <div class="pull-left">
+                        <i class="icon-leaf icon-medium icon-rounded"></i>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Jadwal Kegiatan</h4>
+                        <p>Pada website Posyandu RW 16 Kelurahan Jatimulya, anda dapat melihat jadwal kegiatan yang akan dilakukan di Posyandu RW 16 Keluarahan Jatimulya. Jadwal Kegiatan yang terbaru akan langsung ditampilkan pada website.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+    </div>
+</section>
+<!--/Services-->
+
+
+
+    
+
+
+<!-- Recent Knowledge -->
+
+<section id="recent-works">
+    <div class="container">
+        <div class="center">
+            <h3>Pengetahuan</h3>
+            <p class="lead">Pengetahuan terbaru yang ditambahkan ke website</p>
+        </div>  
+        <div class="gap"></div>
+        <ul class="gallery col-4">
+
+        
+		{% for knowledge in knowledges|slice:":4" %}
+			
+            <!--Item 1-->
+            <li>
+                
+                <div class="desc"><div class="media-body">
+                        <p><h2><a href="{% url 'post_detail' id_knowledge=knowledge.id %}">{{ knowledge.title }}</a></h2></p>
+                        <h4 class="media-heading">{{ knowledge.category }}</h4>
+                        
+                        <p><h3> {{ knowledge.text|slice:":50"}} </h3></p>
+                        <p><h4>{{ knowledge.published_date }} </h4></p>
+                    </div>
+                </div>
+                
+            </li>
+            <!--/Item 1--> 
+        {% endfor %}
+        </ul>
+    </div>
+
+</section>
+
+
+<!-- Recent Knowledge -->
+
+<section id="recent-events">
+    <div class="container">
+        <div class="center">
+            <h3>Jadwal Kegiatan</h3>
+            <p class="lead"></p>
+        </div>  
+        <div class="gap"></div>
+        <ul class="gallery col-4">
+            <!--Item 1-->
+            {% for event in events|slice:":4"%}
+                <li>
+                    <div class="desc">
+                        <h2><a href="{% url 'detail_event' id_event=event.id %}">{{ event.title }}</a></h2>
+                        <div class="blog-meta clearfix">
+                            <p class="pull-left">
+                            <h5><i class="icon-calendar"> Tanggal Kegiatan: </i> {{  event.date_event }} </h5></p>
+                          
+                      </div>
+                      
+                      <p><h4> {{ event.description|linebreaksbr|slice:":50" }} </h4></p>
+                      <!-- <a class="btn btn-link" href="#">Read More <i class="icon-angle-right"></i></a> -->
+                  </div>
+                  </li>
+                  <!-- End Blog Item -->
+                {% endfor %}
+                </ul>           
+
+        </ul>
+    </div>
+
+</section>
+
+
+
+    {% endblock %}
+    
+    <!-- start: Footer -->
+    <div id="footer">
+        
+        <!-- start: Container -->
+        <div class="container">
+            
+            <!-- start: Row -->
+            <div class="row">
+
+                <!-- start: About -->
+                <div class="span3">
+                    
+                    <h3>About Us</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                    </p>
+                        
+                </div>
+                <!-- end: About -->
+
+                <!-- start: Photo Stream -->
+                <div class="span3">
+                    
+                    <h3>We are here!</h3>
+                    <div id="small-map-container"><a href="contact.html"></a></div>
+                    <iframe id="small-map" width="210" height="210" frameborder="0" scrolling="yes" marginheight="0" marginwidth="0" src="https://maps.google.pl/maps?f=q&amp;source=s_q&amp;hl=pl&amp;geocode=&amp;q=Los+Angeles,+Kalifornia,+Stany+Zjednoczone&amp;aq=0&amp;oq=Los&amp;sll=50.143066,18.85267&amp;sspn=0.057207,0.168915&amp;t=m&amp;ie=UTF8&amp;hq=&amp;hnear=Los+Angeles,+Hrabstwo+Los+Angeles,+Kalifornia,+Stany+Zjednoczone&amp;ll=34.052234,-118.243685&amp;spn=0.036979,0.084457&amp;z=14&amp;iwloc=near&amp;output=embed"></iframe>
+                    
+                </div>
+                <!-- end: Photo Stream -->
+
+                <div class="span6">
+                
+                    <!-- start: Follow Us -->
+                    <h3>Follow Us!</h3>
+                    <ul class="social-grid">
+                        <li>
+                            <div class="social-item">               
+                                <div class="social-info-wrap">
+                                    <div class="social-info">
+                                        <div class="social-info-front social-twitter">
+                                            <a href="http://twitter.com"></a>
+                                        </div>
+                                        <div class="social-info-back social-twitter-hover">
+                                            <a href="http://twitter.com"></a>
+                                        </div>  
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="social-item">               
+                                <div class="social-info-wrap">
+                                    <div class="social-info">
+                                        <div class="social-info-front social-facebook">
+                                            <a href="http://facebook.com"></a>
+                                        </div>
+                                        <div class="social-info-back social-facebook-hover">
+                                            <a href="http://facebook.com"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="social-item">               
+                                <div class="social-info-wrap">
+                                    <div class="social-info">
+                                        <div class="social-info-front social-dribbble">
+                                            <a href="http://dribbble.com"></a>
+                                        </div>
+                                        <div class="social-info-back social-dribbble-hover">
+                                            <a href="http://dribbble.com"></a>
+                                        </div>  
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="social-item">               
+                                <div class="social-info-wrap">
+                                    <div class="social-info">
+                                        <div class="social-info-front social-flickr">
+                                            <a href="http://flickr.com"></a>
+                                        </div>
+                                        <div class="social-info-back social-flickr-hover">
+                                            <a href="http://flickr.com"></a>
+                                        </div>  
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <!-- end: Follow Us -->
+                
+                    <!-- start: Newsletter -->
+                    <form id="newsletter">
+                        <h3>Newsletter</h3>
+                        <p>Please leave us your email</p>
+                        <label for="newsletter_input">@:</label>
+                        <input type="text" id="newsletter_input"/>
+                        <input type="submit" id="newsletter_submit" value="submit">
+                    </form>
+                    <!-- end: Newsletter -->
+                
+                </div>
+                
+            </div>
+            <!-- end: Row -->   
+            
+        </div>
+        <!-- end: Container  -->
+
+    </div>
+    <!-- end: Footer -->
+
+
+	
+	
+
+	<script src="{% static 'css-template/js/vendor/jquery-1.9.1.min.js' %}"></script>
+	<script src="{% static 'css-template/js/vendor/bootstrap.min.js' %}"></script>
+	<script src="{% static 'css-template/js/main.js' %}"></script>
+	<!-- Required javascript files for Slider -->
+	<script src="{% static 'css-template/js/jquery.ba-cond.min.js' %}"></script>
+	<script src="{% static 'css-template/js/jquery.slitslider.js' %}"></script>
+	<!-- /Required javascript files for Slider -->
+
+<!-- SL Slider -->
+<script type="text/javascript"> 
+$(function() {
+    var Page = (function() {
+
+        var $navArrows = $( '#nav-arrows' ),
+        slitslider = $( '#slider' ).slitslider( {
+            autoplay : true
+        } ),
+
+        init = function() {
+            initEvents();
+        },
+        initEvents = function() {
+            $navArrows.children( ':last' ).on( 'click', function() {
+                slitslider.next();
+                return false;
+            });
+
+            $navArrows.children( ':first' ).on( 'click', function() {
+                slitslider.previous();
+                return false;
+            });
+        };
+
+        return { init : init };
+
+    })();
+
+    Page.init();
+});
+</script>
+<!-- /SL Slider -->
+
+	
 
 </body>
 </html>
-
-

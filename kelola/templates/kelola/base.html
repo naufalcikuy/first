@@ -3,101 +3,176 @@
 {% load staticfiles %}
 <html lang="en">
     <head>
-        <!---<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">-->
-        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
-        <link rel="stylesheet" href="{% static 'css/kelola.css' %}">
+
+<!-- Head Template -->
+
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Posyandu RW 16</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    
+    <link rel="stylesheet" href="{% static 'css-template/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css-template/css/bootstrap-responsive.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css-template/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css-template/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css-template/css/sl-slide.css' %}">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
 
 
-        <!-- <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css"> -->
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="{% static 'bootstrap/js/jquery.min.js' %}" type="text/javascript"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
-        
-        
-        <meta charset="UTF-8">
-        <title>Posyandu</title>
+    <script src="{% static 'css-template/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js' %}"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js" type="text/javascript"></script>
+       
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!-- Le fav and touch icons -->
+    <!-- <link rel="shortcut icon" href="{% static 'css-template/images/ico/favicon.ico' %}"> -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+    
     </head>
+
     <body>
-               <!-- Top menu -->
-        <!--<nav class="navbar" role="navigation">
+               <!--Header-->
+    <header class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
             <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.html">Andia - a super cool design agency...</a>
-                </div> -->
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <!--
-                <div class="collapse navbar-collapse" id="top-navbar-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown active">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000">
-                                <i class="fa fa-home"></i><br>Home <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-left" role="menu">
-                                <li class="active"><a href="index.html">Home</a></li>
-                                <li><a href="index-2.html">Home 2</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="portfolio.html"><i class="fa fa-camera"></i><br>Portfolio</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-comments"></i><br>Blog</a>
-                        </li>
-                        <li>
-                            <a href="services.html"><i class="fa fa-tasks"></i><br>Services</a>
-                        </li>
-                        <li>
-                            <a href="about.html"><i class="fa fa-user"></i><br>About</a>
-                        </li>
-                        <li>
-                            <a href="contact.html"><i class="fa fa-envelope"></i><br>Contact</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
--->
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <a id="logo" class="pull-left" href="{% url 'knowledge_list' %}"></a>
+                <div class="nav-collapse collapse pull-right">
+                    <ul class="nav">
+                        
+                        <!--
+                        <li class="active"><a href="index.html">Home</a></li>
+                        -->
 
+                        {% if user.is_authenticated %}
 
+                            <li><a href="{% url 'show_pengetahuan' %}" > Pengetahuan</a></li> 
+                            <li><a href="{% url 'show_anggota' %}" > Anggota Balita</a></li>
+                            <li><a href="{% url 'show_pemeriksaan' %}" > Pencatatan Pemeriksaan</a></li>
+                            <li><a href="{% url 'show_kegiatan' %}" > Kegiatan</a></li>
 
-       <div class="page-header">
-            {% if user.is_authenticated %}
-               <!-- <a href="{% url 'post_new' %}" class="top-menu"> New Knowledge</a>
-                <a href="{% url 'new_history' %}" class="top-menu"> New History</a>-->
-
-                <a href="{% url 'show_kegiatan' %}" class="top-menu"> Kegiatan</a>
-                <a href="{% url 'show_pemeriksaan' %}" class="top-menu"> Pencatatan Pemeriksaan</a>
-                <a href="{% url 'show_anggota' %}" class="top-menu"> Anggota Balita</a>
-                <a href="{% url 'show_pengetahuan' %}" class="top-menu"> Pengetahuan</a>
-                
-                     
-                {% else %}
-                <a href="{% url 'show_event' %}" class="top-menu">Event</a>
-                <a href="{% url 'show_history' %}" class="top-menu">History</a>
-                <a href="{% url 'show_knowledge' %}" class="top-menu">Knowledge</a>
-                
-            {% endif %}
-
-         <h1><a href="/">Posyandu</a></h1>
-        </div>
-        <div class="content container">
-            <div class="row">
-                <div class="col-md-8">
-                    {% block content %}
-                    {% endblock %}
-                </div>
+                        {% else %}
+                            <li><a href="{% url 'show_knowledge' %}" >Pengetahuan</a></li>
+                            <li><a href="{% url 'show_history' %}" >Pemeriksaan</a></li>
+                            <li><a href="{% url 'show_event' %}" >Kegiatan</a></li>
+                        {% endif %}                         
+                                    
+                        
+                    </ul>        
+                </div><!--/.nav-collapse -->
             </div>
         </div>
+    </header>
+    <!-- /header -->
+        <!--<div class="content container">
+            <div class="row">-->
+               
+{% block content %}
+{% endblock %}
+              
+            <!--</div>
+        </div> -->
 
-        
+   <!--Footer-->
+<footer id="footer">
+    <div class="container">
+        <div class="row-fluid">
+            <div class="span5 cp">
+                &copy; 2013 <a target="_blank" href="http://shapebootstrap.net/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">ShapeBootstrap</a>. All Rights Reserved.
+            </div>
+            <!--/Copyright-->
+
+            <div class="span6">
+                <ul class="social pull-right">
+                    <li><a href="#"><i class="icon-facebook"></i></a></li>
+                    <li><a href="#"><i class="icon-twitter"></i></a></li>
+                    <li><a href="#"><i class="icon-pinterest"></i></a></li>
+                    <li><a href="#"><i class="icon-linkedin"></i></a></li>
+                    <li><a href="#"><i class="icon-google-plus"></i></a></li>                       
+                    <li><a href="#"><i class="icon-youtube"></i></a></li>
+                    <li><a href="#"><i class="icon-tumblr"></i></a></li>                        
+                    <li><a href="#"><i class="icon-dribbble"></i></a></li>
+                    <li><a href="#"><i class="icon-rss"></i></a></li>
+                    <li><a href="#"><i class="icon-github-alt"></i></a></li>
+                    <li><a href="#"><i class="icon-instagram"></i></a></li>                   
+                </ul>
+            </div>
+
+            <div class="span1">
+                <a id="gototop" class="gototop pull-right" href="#"><i class="icon-angle-up"></i></a>
+            </div>
+            <!--/Goto Top-->
+        </div>
+    </div>
+</footer>
+<!--/Footer-->
+
+    
+
+<!-- start: Java Script -->
+<!-- Placed at the end of the document so the pages load faster
+    <script src="{% static 'css-template/js/jquery-1.8.2.js' %}"></script>
+    <script src="{% static 'css-template/js/bootstrap.js' %}"></script>
+    <script src="{% static 'css-template/js/flexslider.js' %}"></script>
+    <script src="{% static 'css-template/js/carousel.js' %}"></script>
+    <script src="{% static 'css-template/js/jquery.cslider.js' %}"></script>
+    <script src="{% static 'css-template/js/slider.js' %}"></script>
+    <script defer="defer" src="{% static 'css-template/js/custom.js' %}"></script>
+<!-- end: Java Script -->    
+
+<script src="{% static 'css-template/js/vendor/jquery-1.9.1.min.js' %}"></script>
+    <script src="{% static 'css-template/js/vendor/bootstrap.min.js' %}"></script>
+    <script src="{% static 'css-template/js/main.js' %}"></script>
+    <!-- Required javascript files for Slider -->
+    <script src="{% static 'css-template/js/jquery.ba-cond.min.js' %}"></script>
+    <script src="{% static 'css-template/js/jquery.slitslider.js' %}"></script>
+    <!-- /Required javascript files for Slider -->
+
+<!-- SL Slider -->
+<script type="text/javascript"> 
+$(function() {
+    var Page = (function() {
+
+        var $navArrows = $( '#nav-arrows' ),
+        slitslider = $( '#slider' ).slitslider( {
+            autoplay : true
+        } ),
+
+        init = function() {
+            initEvents();
+        },
+        initEvents = function() {
+            $navArrows.children( ':last' ).on( 'click', function() {
+                slitslider.next();
+                return false;
+            });
+
+            $navArrows.children( ':first' ).on( 'click', function() {
+                slitslider.previous();
+                return false;
+            });
+        };
+
+        return { init : init };
+
+    })();
+
+    Page.init();
+});
+</script>
+<!-- /SL Slider -->
 
     </body>
 </html>

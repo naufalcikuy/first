@@ -7,7 +7,53 @@
 </head>
 <body>
 {% block content %}
-Coba Halaman Event
+
+
+<section class="title">
+        <div class="container">
+            <div class="row-fluid">
+                <div class="span6">
+                    <h1>Jadwal Kegiatan</h1>
+                </div>
+                <div class="span6">
+                    <ul class="breadcrumb pull-right">
+                        <li><a href="{% url 'knowledge_list' %}">Beranda</a> <span class="divider">/</span></li>
+                        <li class="active">Jadwal Kegiatan</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- / .title -->    
+
+
+<section id="about-us" class="container main">
+        <div class="row-fluid">
+            <div class="span12">
+                <ul class="gallery col-4">
+
+                {% for event in events %}
+                <li>
+                    <div class="blog-item well">
+                        <h2><a href="{% url 'detail_event' id_event=event.id %}">{{ event.title }}</a></h2>
+                        <div class="blog-meta clearfix">
+                            <p class="pull-left">
+                            <h5><i class="icon-calendar"> Tanggal Kegiatan: </i> {{  event.date_event }} </h5></p>
+                          
+                      </div>
+                      
+                      <p><h4> {{ event.description|linebreaksbr }} </h4></p>
+                      <a class="btn btn-link" href="{% url 'detail_event' id_event=event.id %}">Selengkapnya<i class="icon-angle-right"></i></a>
+                  </div>
+                  </li>
+                  <!-- End Blog Item -->
+                {% endfor %}
+                </ul>
+                  
+</div>
+</div>
+</div>
+</section>
 {% endblock %}
 
 </body>

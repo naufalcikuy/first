@@ -1,7 +1,8 @@
 {% extends 'kelola/base.html' %}
 
 {% block content %}
-    <h1>New history</h1>
+
+    
     <!--<form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="save btn btn-default">Save</button>
@@ -31,30 +32,90 @@
     }); 
     </script>
     -->
-    <div class='isi'>
-<a href="{% url 'new_history' %}" class="btn btn-default">Pencatatan Pemeriksaan</a>
+
+
+<section class="title">
+        <div class="container">
+            <div class="row-fluid">
+                <div class="span6">
+                    <h1>Kelola Riwayat Pemeriksaan</h1>
+                </div>
+                <div class="span6">
+                    <ul class="breadcrumb pull-right">
+                        <li><a href="{% url 'knowledge_list' %}"><h4>Beranda / </h4></a> </li>
+                        <li class="active"><h5>Kelola Riwayat Pemeriksaan</h5></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- / .title -->  
+
+<div class="gap"></div>
+
+<section id="recent-events">
+    <div class="container">
+        <div class="center">
+            <h3>Pencatatan Riwayat Pemeriksaan</h3>
+            <p class="lead"></p>
+        </div>  
+
+        <div class="center">
+        <a href="{% url 'new_history' %}" class="btn btn-default">Tambah Riwayat Pemeriksaan</a>
+        
 </div>
+    </div>
 
-    <form>
-      Nomor Balita:<br>
-      <input type="text" id="nomorbalita" name="nomorbalita" placeholder="Masukkan Nomor Balita"><br>
-      <a id="filter-baby" class="btn btn-default">Filter</a>
+</section>
+
+<section id="recent-works">
+    <div class="container">
+        <div class="center">
+            <h3>Pencarian Riwayat Pemeriksaan</h3>
+            <p class="lead"></p>
+        </div>  
+
+        <div class="center">
+        <form>
+    
+      <input type="number" id="nomorbalita" name="nomorbalita" placeholder="Masukkan Nomor Balita">
+      <a id="filter-baby" class="btn btn-warning">  <h5>Cari</h5></a>
     </form>
+        
+</div>
+    </div>
 
-    <div>
-        <table class="table">
+</section>
+
+
+  
+
+        
+
+
+<section id="about-us" class="container main">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="blog">
+
+        <table class="customers">
+<div class="center">
+<h2>Riwayat Pencatatan Tinggi Badan</h2>
+</div>
             <tr>
-                <th>Id Baby</th>
-                <th>Check</th> 
-                <th>Value</th>
+                <th>No Balita</th>
+                <th>Pemeriksaan</th> 
+                <th>Usia</th>
+                <th>Nilai</th>
                 <th>Status</th>
-                <th>Date</th>
+                <th>Tanggal Pemeriksaan</th>
             </tr>
             {% for item in check_height %}
             <tr>
                 <td>{{ item.baby.id_baby }} </td>
                 <td>{{ item.check }} </td> 
-                <td>{{ item.value }} </td>
+                <td>{{ item.baby.umur_bulan_bayi }} bulan</td>
+                <td>{{ item.value }} cm</td>
                 <td>{{ item.status }} </td>
                 <td>{{ item.published_date}} </td>
             </tr>
@@ -65,26 +126,31 @@
                 <td>data tidak tersedia </td>
                 <td>data tidak tersedia </td>
                 <td>data tidak tersedia </td>
+                <td>data tidak tersedia </td>
                 
             </tr>
             {% endfor %}  
         </table>
-</div>
+        <div class="gap"></div>
 
-<div>
-        <table class="table">
+        <table class="customers">
+        <div class="center">
+<h2>Riwayat Pencatatan Berat Badan</h2>
+</div>
             <tr>
-                <th>Id Baby</th>
-                <th>Check</th> 
-                <th>Value</th>
+                <th>Nomor Balita</th>
+                <th>Pemeriksaan</th> 
+                <th>Usia</th>
+                <th>Nilai</th>
                 <th>Status</th>
-                <th>Date</th>
+                <th>Tanggal Pemeriksaan</th>
             </tr>
             {% for item in check_weight %}
             <tr>
                 <td>{{ item.baby.id_baby }} </td>
-                <td>{{ item.check }} </td> 
-                <td>{{ item.value }} </td>
+                <td>{{ item.check }} </td>
+                <td>{{ item.baby.umur_bulan_bayi }} bulan</td>
+                <td>{{ item.value }} kg</td>
                 <td>{{ item.status }} </td>
                 <td>{{ item.published_date}} </td>
 
@@ -96,24 +162,32 @@
                 <td>data tidak tersedia </td>
                 <td>data tidak tersedia </td>
                 <td>data tidak tersedia </td>
+                <td>data tidak tersedia </td>
                 
             </tr>
             {% endfor %}  
         </table>
+
+        <div class="gap"></div>
+
+        <table class="customers">
+        <div class="center">
+<h2>Riwayat Pencatatan Lingkar Kepala</h2>
 </div>
-        <table class="table">
             <tr>
-                <th>Id Baby</th>
-                <th>Check</th> 
-                <th>Value</th>
+                <th>Nomor Balita</th>
+                <th>Pemeriksaan</th> 
+                <th>Usia</th>
+                <th>Nilai</th>
                 <th>Status</th>
-                <th>Date</th>
+                <th>Tanggal Pemeriksaan</th>
             </tr>
             {% for item in check_head %}
             <tr>
                 <td>{{ item.baby.id_baby }} </td>
-                <td>{{ item.check }} </td> 
-                <td>{{ item.value }} </td>
+                <td>{{ item.check }} </td>
+                <td>{{ item.baby.umur_bulan_bayi }} bulan</td>  
+                <td>{{ item.value }} cm</td>
                 <td>{{ item.status }} </td>
                 <td>{{ item.published_date}} </td>
 
@@ -125,32 +199,38 @@
                 <td>data tidak tersedia </td>
                 <td>data tidak tersedia </td>
                 <td>data tidak tersedia </td>
+                <td>data tidak tersedia </td>
                 
             </tr>
             {% endfor %}  
         </table>
-<div>
-        <table class="table">
+
+        <div class="gap"></div>
+
+        <table class="customers">
+        <div class="center">
+<h2>Riwayat Pencatatan Imunisasi</h2>
+</div>
             <tr>
-                <th>Id Baby</th>
-                <th>Check</th> 
-                <th>Value</th>
-                <th>Status</th>
-                <th>Date</th>
+                <th>Nomor Balita</th>
+                <th>Pemeriksaan</th> 
+                <th>Usia</th>
+                <th>Nilai</th>                
+                <th>Tanggal Pemeriksaan</th>
             </tr>
             {% for item in check_immunization %}
             <tr>
                 <td>{{ item.baby.id_baby }} </td>
-                <td>{{ item.check }} </td> 
-                <td>{{ item.imun_value }} </td>
-                <td>{{ item.status }} </td>
+                <td>{{ item.check }} </td>
+                <td>{{ item.baby.umur_bulan_bayi }} bulan</td>
+                <td>{{ item.imun_value }} </td>                
                 <td>{{ item.published_date}} </td>
             </tr>
             {% empty %}
             <tr>
                 <td>data tidak tersedia </td>
                 <td>data tidak tersedia </td>
-                <td>data tidak tersedia </td>
+                <td>data tidak tersedia </td>                
                 <td>data tidak tersedia </td>
                 <td>data tidak tersedia </td>
                 
@@ -158,7 +238,14 @@
             
             {% endfor %}  
         </table>
+ 
+
 </div>  
+</div>
+</div>
+</section>
+
+
 <script type="text/javascript">
     $("#filter-baby").click(function(){
         var nomorbalita = $("#nomorbalita").val();
@@ -168,10 +255,14 @@
         }
         
         else{
-            alert('tolong masukkan id baby');
+            alert('tolong masukkan nomor balita');
         }
         
     });
 </script>
+
+
+
+
 
 {% endblock %}

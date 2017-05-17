@@ -14,22 +14,113 @@
 
 </head>
 <body>
-<div class='page-header'>
-    <h1><a href="/">Informasi Kegiatan</a></h1>
-</div>
 
-<div class="content container">
-<div class="row">
-<div class="col-md-8">
 
 {% block content %}
-HALAMAN INFORMASI KEGIATAN
+<section class="title">
+        <div class="container">
+            <div class="row-fluid">
+                <div class="span6">
+                    <h1>Kelola Jadwal Kegiatan</h1>
+                </div>
+                <div class="span6">
+                    <ul class="breadcrumb pull-right">
+                        <li><a href="{% url 'knowledge_list' %}"><h4>Beranda / </h4></a> </li>
+                        <li class="active"><h5>Kelola Jadwal Kegiatan</h5></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- / .title -->  
 
-<a href="{% url 'new_event' %}" class="btn btn-default">Tambah Event</a>
+<div class="gap"></div>
+
+<section id="recent-events">
+    <div class="container">
+        <div class="center">
+            <h3>Penambahan Jadwal Kegiatan</h3>
+            <p class="lead"></p>
+        </div>  
+
+        <div class="center">
+        
+<a href="{% url 'new_event' %}" class="btn btn-basic"><h5>Tambah Jadwal Kegiatan</h5></a>
+        
+</div>
+    </div>
+
+</section>
+
+
+
+
+<section id="about-us" class="container main">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="blog">
+
+		<table class="customers">
+    <div class="center">
+<h2>Daftar Kegiatan</h2>
+</div>
+			<tr>
+		    	<th>Judul Kegiatan</th>
+		    	<th>Deskripsi</th> 
+		    	<th>Tanggal Kegiatan</th>
+		    	<th>Tindakan</th>
+		  	</tr>
+			{% for item in events %}
+			<tr>
+			    <td>{{ item.title }} </td>
+			    <td>{{ item.description }}</td> 
+			    <td>{{ item.date_event }}</td>
+			    <td> <a class=" btn btn-warning" href = "{% url 'edit_event' item.id %}">Edit</a>
+			    	 <button type="button" class= "btn btn-danger" data-toggle="modal" data-target="#myModal{{item.id}}">Hapus</button>
+			    </td>
+			</tr>
+			{% endfor %}  
+		</table>
+
+
+</div>
+</div>
+</div>
+</section>
+
+{% for item in events %}
+
+         <!-- Trigger the modal with a button -->
+            
+
+            <!-- Modal -->
+            <div id="myModal{{item.id}}" class="modal fade" role="dialog" style="display: none;">
+              <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                  </div>
+                  <div class="modal-body">
+                    <p> Apakah anda yakin menghapus kegiatan untuk
+                                <h1>judul: {{item.title}}</h1>
+                                <h1>deskripsi: {{item.description}}</h1>
+                                <h1>tanggal kegiatan: {{item.date_event}}</h1></p>
+                  </div>
+                  <div class="modal-footer">
+                        <a href="{% url 'delete_event' item.id %}"><button type="button" class="btn btn-danger">Hapus</button></a>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                   
+                  </div>
+                </div>
+
+              </div>
+            </div>
+        {% endfor %}  
 {% endblock %}
-</div>
-</div>
-</div>
+
 
 
 </body>

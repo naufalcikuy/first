@@ -27,6 +27,9 @@ urlpatterns = [
     url(r'^manage/check$', views.show_pemeriksaan, name='show_pemeriksaan'),
     url(r'^manage/event$', views.show_kegiatan, name='show_kegiatan'),
     url(r'^manage/event/new$', views.new_event, name='new_event'),
+    url(r'^manage/event/edit/(?P<id_event>[0-9]+)/$', views.edit_event, name='edit_event'),
+    url(r'^manage/event/(?P<id_event>[0-9]+)/$', views.detail_event, name='detail_event'),
+    url(r'^manage/event/delete/(?P<id_event>[0-9]+)/$', views.delete_event, name='delete_event'),
 
  
-    ]
+    ] 
