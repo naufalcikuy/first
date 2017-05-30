@@ -5,20 +5,20 @@
 <html lang="en">
 <head>
 
-	<!-- start: Mobile Specific -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<!-- end: Mobile Specific -->
+    <!-- start: Mobile Specific -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- end: Mobile Specific -->
 
 <link rel="stylesheet" href="{% static 'css-template/css/main.css' %}">
 
 </head>
 <body>
-	
-	
-	
-	<!-- start: Slider -->
-	{% block content %}
-	<!--Slider-->
+    
+    
+    
+    <!-- start: Slider -->
+    {% block content %}
+    <!--Slider-->
     <section id="slide-show">
      <div id="slider" class="sl-slider-wrapper hyphenate">
 
@@ -77,10 +77,10 @@
 <!-- /slider-wrapper -->           
 </section>
 <!--/Slider-->
-	
+    
 
-			
-	<!--Services-->
+            
+    <!--Services-->
 <section id="services">
     <div class="container">
         <div class="center gap">
@@ -149,8 +149,8 @@
         <ul class="gallery col-4">
 
         
-		{% for knowledge in knowledges|slice:":4" %}
-			
+        {% for knowledge in knowledges|slice:":4" %}
+            
             <!--Item 1-->
             <li>
                 
@@ -330,16 +330,16 @@
     <!-- end: Footer -->
 
 
-	
-	
+    
+    
 
-	<script src="{% static 'css-template/js/vendor/jquery-1.9.1.min.js' %}"></script>
-	<script src="{% static 'css-template/js/vendor/bootstrap.min.js' %}"></script>
-	<script src="{% static 'css-template/js/main.js' %}"></script>
-	<!-- Required javascript files for Slider -->
-	<script src="{% static 'css-template/js/jquery.ba-cond.min.js' %}"></script>
-	<script src="{% static 'css-template/js/jquery.slitslider.js' %}"></script>
-	<!-- /Required javascript files for Slider -->
+    <script src="{% static 'css-template/js/vendor/jquery-1.9.1.min.js' %}"></script>
+    <script src="{% static 'css-template/js/vendor/bootstrap.min.js' %}"></script>
+    <script src="{% static 'css-template/js/main.js' %}"></script>
+    <!-- Required javascript files for Slider -->
+    <script src="{% static 'css-template/js/jquery.ba-cond.min.js' %}"></script>
+    <script src="{% static 'css-template/js/jquery.slitslider.js' %}"></script>
+    <!-- /Required javascript files for Slider -->
 
 <!-- SL Slider -->
 <script type="text/javascript"> 
@@ -375,7 +375,7 @@ $(function() {
 </script>
 <!-- /SL Slider -->
 
-	
+    
 
 </body>
 </html>

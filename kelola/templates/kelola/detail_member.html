@@ -1,41 +1,60 @@
+
+
 <!DOCTYPE html>
 {% extends 'kelola/base.html' %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Detail Member</title>
+    <title>Detail Postingan</title>
 </head>
 <body>
 {% block content %}
-   <table class="table">
-            <tr>
-                <th>Id Baby</th>
-                <th>Baby Name</th> 
-                <th>Date Birth</th>
-                <th>Mother Name</th>
-                <th>Father Name</th>
-                <th>Address</th>
-                <th>Weight Birth</th>
-                <th>Height Birth</th>
-                <th>Head Circumference Birth</th>
-                <th>Created Date</th>
-            </tr>
-            
-            <tr>
-                <td>{{ member_baby.id_baby }} </td>
-                <td>{{ member_baby.baby_name }}</td> 
-                <td>{{ member_baby.date_birth }}</td>
-                <td>{{ member_baby.mother_name }} </td>
-                <td>{{ member_baby.father_name }}</td> 
-                <td>{{ member_baby.address }}</td>
-                <td>{{ member_baby.weight_birth }} </td>
-                <td>{{ member_baby.height_birth }}</td> 
-                <td>{{ member_baby.headcircumference_birth }}</td>
-                <td>{{ member_baby.created_date }}</td>
+
+<div class="gap"></div>
+    
+<section id="recent-events">
+    <div class="container">
+        <div class="center">
+            <h3>Detail Anggota Balita</h3>
+            <p class="lead"></p>
+        </div>  
+
+        
+    </div>
+
+</section>
+
+<section id="about-us" class="container main">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="blog">
+
                 
-            </tr>
-            
-        </table>
+                    <div class="blog-item well hyphenate">
+                        
+                        <h3> Nomor Balita   : {{ member_baby.id_baby }} </h3>
+                        <h3> Nama           : {{ member_baby.baby_name }}</h3> 
+                        <h3> Tanggal Lahir : {{ member_baby.date_birth }}</h3>
+                        <h3> Nama Ibu       : {{ member_baby.mother_name }} </h3>
+                        <h3> Nama Ayah      : {{ member_baby.father_name }}</h3> 
+                        <h3> Alamat         : {{ member_baby.address }}</h3>
+                        <h3> Berat Badan    : {{ member_baby.weight_birth }} </h3>
+                        <h3> Tinggi Badan   : {{ member_baby.height_birth }}</h3> 
+                        <h3> Lingkar Kepala : {{ member_baby.headcircumference_birth }}</h3>
+                        <h3> Tanggal Pendaftaran    : {{ member_baby.created_date }}</h3>
+                              
+                      
+                     
+                  </div>
+                  <!-- End Blog Item -->
+                
+                  
+</div>
+</div>
+</div>
+</section>
 {% endblock %}
+
+
 </body>
 </html>

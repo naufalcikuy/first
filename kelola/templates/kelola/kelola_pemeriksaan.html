@@ -98,45 +98,56 @@
             <div class="span12">
                 <div class="blog">
 
-        <table class="customers">
-<div class="center">
-<h2>Riwayat Pencatatan Tinggi Badan</h2>
-</div>
-            <tr>
-                <th>No Balita</th>
-                <th>Pemeriksaan</th> 
-                <th>Usia</th>
-                <th>Nilai</th>
-                <th>Status</th>
-                <th>Tanggal Pemeriksaan</th>
-            </tr>
-            {% for item in check_height %}
-            <tr>
-                <td>{{ item.baby.id_baby }} </td>
-                <td>{{ item.check }} </td> 
-                <td>{{ item.baby.umur_bulan_bayi }} bulan</td>
-                <td>{{ item.value }} cm</td>
-                <td>{{ item.status }} </td>
-                <td>{{ item.published_date}} </td>
-            </tr>
-            {% empty %}
-            <tr>
-                <td>data tidak tersedia </td>
-                <td>data tidak tersedia </td>
-                <td>data tidak tersedia </td>
-                <td>data tidak tersedia </td>
-                <td>data tidak tersedia </td>
-                <td>data tidak tersedia </td>
+    <div class="blog-item well">
+        <div class="center">
+            <h2>Riwayat Pencatatan Tinggi Badan</h2>
+        </div>
+        <div style="overflow-x:auto;">
+            <table class="customers">
                 
-            </tr>
-            {% endfor %}  
-        </table>
+                <tr>
+                    <th>No Balita</th>
+                    <th>Pemeriksaan</th> 
+                    <th>Usia</th>
+                    <th>Nilai</th>
+                    <th>Status</th>
+                    <th>Tanggal Pemeriksaan</th>
+                </tr>
+                {% for item in check_height %}
+                <tr>
+                    <td>{{ item.baby.id_baby }} </td>
+                    <td>{{ item.check }} </td> 
+                    <td>{{ item.baby.umur_bulan_bayi }} bulan</td>
+                    <td>{{ item.value }} cm</td>
+                    <td>{{ item.status }} </td>
+                    <td>{{ item.published_date}} </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td>data tidak tersedia </td>
+                    <td>data tidak tersedia </td>
+                    <td>data tidak tersedia </td>
+                    <td>data tidak tersedia </td>
+                    <td>data tidak tersedia </td>
+                    <td>data tidak tersedia </td>
+                    
+                </tr>
+                {% endfor %}  
+            </table>
+        </div>
+    </div>
+
         <div class="gap"></div>
 
-        <table class="customers">
+    <div class="blog-item well">
         <div class="center">
-<h2>Riwayat Pencatatan Berat Badan</h2>
-</div>
+            <h2>Riwayat Pencatatan Berat Badan</h2>
+        </div>
+            <div style="overflow-x:auto;">
+            
+
+        <table class="customers">
+            
             <tr>
                 <th>Nomor Balita</th>
                 <th>Pemeriksaan</th> 
@@ -167,13 +178,19 @@
             </tr>
             {% endfor %}  
         </table>
+        </div>
+    </div>
+
 
         <div class="gap"></div>
 
-        <table class="customers">
-        <div class="center">
+     <div class="blog-item well">
+          <div class="center">
 <h2>Riwayat Pencatatan Lingkar Kepala</h2>
 </div>
+            <div style="overflow-x:auto;">
+        <table class="customers">
+      
             <tr>
                 <th>Nomor Balita</th>
                 <th>Pemeriksaan</th> 
@@ -204,13 +221,19 @@
             </tr>
             {% endfor %}  
         </table>
+    </div>
+    </div>
 
         <div class="gap"></div>
 
-        <table class="customers">
-        <div class="center">
+<div class="blog-item well">
+       <div class="center">
 <h2>Riwayat Pencatatan Imunisasi</h2>
 </div>
+            <div style="overflow-x:auto;">
+
+        <table class="customers">
+    
             <tr>
                 <th>Nomor Balita</th>
                 <th>Pemeriksaan</th> 
@@ -238,6 +261,8 @@
             
             {% endfor %}  
         </table>
+        </div>
+        </div>
  
 
 </div>  

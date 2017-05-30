@@ -14,11 +14,18 @@ def knowledge_list(request):
     return render(request, 'kelola/post_list.html', {'knowledges': knowledges, 'events': events})
    # post = get_object_or_404(Post, pk = pk)
 
+@login_required(login_url='/admin/login/')
+def show_admin(request):
+    knowledges = Knowledge.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+    events = Event.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+    return render(request, 'kelola/post_list.html', {'knowledges': knowledges, 'events': events})
+
 
 def post_detail(request, id_knowledge):
     knowledge = get_object_or_404(Knowledge, id=id_knowledge)
     return render(request, 'kelola/post_detail.html', {'knowledge': knowledge})
 
+@login_required(login_url='/admin/login/')
 def post_new(request):
     if request.method == "POST":
         form = PostForm(request.POST)
@@ -35,6 +42,8 @@ def post_new(request):
 
 
 
+
+@login_required(login_url='/admin/login/')
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
@@ -81,6 +90,30 @@ def show_pengetahuan(request):
     knowledges = Knowledge.objects.all()
     return render(request, 'kelola/kelola_pengetahuan.tmpl', {'knowledges_health': knowledges_health, 'knowledges_growing': knowledges_growing, 'knowledges_development': knowledges_development, 'knowledges_immunization': knowledges_immunization, 'knowledges': knowledges})
 
+def show_health(request):
+    knowledges_health = Knowledge.objects.all().filter(category="Health").filter(published_date__lte=timezone.now()).order_by('-published_date')
+    knowledges = Knowledge.objects.all()
+    return render(request, 'kelola/health_knowledge.html', {'knowledges_health': knowledges_health,'knowledges': knowledges})
+
+def show_grow(request):
+    knowledges_growing = Knowledge.objects.all().filter(category="Growing").filter(published_date__lte=timezone.now()).order_by('-published_date')
+    knowledges = Knowledge.objects.all()
+    return render(request, 'kelola/grow_knowledge.html', {'knowledges_growing': knowledges_growing,'knowledges': knowledges})
+
+def show_development(request):
+    knowledges_development = Knowledge.objects.all().filter(category="Development").filter(published_date__lte=timezone.now()).order_by('-published_date')
+    knowledges = Knowledge.objects.all()
+    return render(request, 'kelola/development_knowledge.html', {'knowledges_development': knowledges_development,'knowledges': knowledges})
+
+def show_immun(request):
+    knowledges_immunization = Knowledge.objects.all().filter(category="Immunization").filter(published_date__lte=timezone.now()).order_by('-published_date')
+    knowledges = Knowledge.objects.all()
+    return render(request, 'kelola/immun_knowledge.html', {'knowledges_immunization': knowledges_immunization,'knowledges': knowledges})    
+    
+
+
+
+@login_required(login_url='/admin/login/')
 def new_knowledge(request):
     knowledges_health = Knowledge.objects.all().filter(category="Health")
     knowledges_growing = Knowledge.objects.all().filter(category="Growing")
@@ -95,6 +128,7 @@ def delete_knowledge(request):
     knowledges_immunization = Knowledge.objects.all().filter(category="Immunization")
     return render(request, 'kelola/knowledge_delete.html', {'knowledges_health': knowledges_health, 'knowledges_growing': knowledges_growing, 'knowledges_development': knowledges_development, 'knowledges_immunization': knowledges_immunization})
 
+@login_required(login_url='/admin/login/')
 def show_pemeriksaan(request):
     check_height = History.objects.all().filter(check="height")
     check_weight = History.objects.all().filter(check="weight")
@@ -125,7 +159,7 @@ def show_pemeriksaan(request):
     return render(request, 'kelola/kelola_pemeriksaan.html', {'check_height': check_height, 'check_weight': check_weight, 'check_head': check_head, 'check_immunization': check_immunization})
     
 
-    
+@login_required(login_url='/admin/login/')    
 def show_anggota(request):
     member_baby = BabyBio.objects.all()
     return render(request, 'kelola/kelola_anggota.html', {'member_baby': member_baby})
@@ -135,7 +169,7 @@ def detail_member(request, id_bayi):
     return render(request, 'kelola/detail_member.html', {'member_baby': member_baby})
 
 
-
+@login_required(login_url='/admin/login/')
 def edit_member(request, id_bayi):
     member_baby = get_object_or_404(BabyBio, id_baby=id_bayi)
     if request.method=="POST":
@@ -153,6 +187,7 @@ def detail_knowledge(request, id_knowledge):
     knowledges = get_object_or_404(Knowledge, id=id_knowledge)
     return render(request, 'kelola/detail_knowledge.html', {'knowledges': knowledges})
 
+@login_required(login_url='/admin/login/')
 def edit_knowledge(request, id_knowledge):
     knowledges = get_object_or_404(Knowledge, id=id_knowledge)
     if request.method=="POST":
@@ -165,10 +200,12 @@ def edit_knowledge(request, id_knowledge):
         form = edit_knowledge_form(instance = knowledges)
     return render(request, 'kelola/edit_knowledge.html', {'knowledges': knowledges, 'form': form})
 
+
 def detail_event(request, id_event):
     events = get_object_or_404(Event, id=id_event)
     return render(request, 'kelola/detail_event.html', {'events': events})
 
+@login_required(login_url='/admin/login/')
 def edit_event(request, id_event):
     events = get_object_or_404(Event, id=id_event)
     if request.method=="POST":
@@ -182,22 +219,26 @@ def edit_event(request, id_event):
         form = edit_event_form(instance = events)
     return render(request, 'kelola/edit_event.html', {'events': events, 'form': form})
 
+@login_required(login_url='/admin/login/')
 def delete_event(request, id_event):
     events = Event.objects.get(id=id_event)
     events.delete()
     return redirect('show_kegiatan')
 
+@login_required(login_url='/admin/login/')
 def delete_knowledge(request, id_knowledge):
     knowledges = Knowledge.objects.get(id=id_knowledge)
     knowledges.delete()
     return redirect('show_pengetahuan')
 
+@login_required(login_url='/admin/login/')
 def delete_member(request, id_bayi):
     member_baby = BabyBio.objects.get(id_baby=id_bayi)
     member_baby.delete()
     return redirect('show_anggota')
     #return HttpResponseRedirect(reverse('show_anggota'))
 
+@login_required(login_url='/admin/login/')
 def new_member(request):
     if request.method == "POST":
         form = BabyBioForm(request.POST)
@@ -205,11 +246,13 @@ def new_member(request):
             babybio = form.save(commit=False)
             babybio.created_date = timezone.now()
             babybio.save()
-            return redirect('detail_member', id_bayi= babybio.id_baby)
+            return redirect('show_anggota')
+            #return redirect('detail_member', id_bayi= babybio.id_baby)
     else:
         form = BabyBioForm()
     return render(request, 'kelola/new_member.html', {'form': form})
 
+@login_required(login_url='/admin/login/')
 def new_event(request):
     if request.method == "POST":
         form = new_event_form(request.POST)
@@ -217,18 +260,19 @@ def new_event(request):
             event = form.save(commit=False)
             event.published_date = timezone.now()
             event.save()
-            
+            return redirect('show_kegiatan')
+             
     else:
         form = new_event_form()
     return render(request, 'kelola/new_event.html', {'form': form})
 
-
+@login_required(login_url='/admin/login/')
 def show_kegiatan(request):
     events = Event.objects.all()
     return render(request, 'kelola/kelola_kegiatan.html', {'events': events})
     
     
-
+@login_required(login_url='/admin/login/')
 def new_history(request):
     # history = get_object_or_404(History)
     if request.method == "POST":

@@ -27,14 +27,17 @@
     <!-- / .title -->    
 
 
+
+
+
 <section id="about-us" class="container main">
         <div class="row-fluid">
+
             <div class="span12">
-                <ul class="gallery col-4">
+                <div class="blog">
 
                 {% for event in events %}
-                <li>
-                    <div class="blog-item well">
+                    <div class="blog-item well hyphenate">
                         <h2><a href="{% url 'detail_event' id_event=event.id %}">{{ event.title }}</a></h2>
                         <div class="blog-meta clearfix">
                             <p class="pull-left">
@@ -43,12 +46,10 @@
                       </div>
                       
                       <p><h4> {{ event.description|linebreaksbr }} </h4></p>
-                      <a class="btn btn-link" href="{% url 'detail_event' id_event=event.id %}">Selengkapnya<i class="icon-angle-right"></i></a>
+                      
                   </div>
-                  </li>
                   <!-- End Blog Item -->
                 {% endfor %}
-                </ul>
                   
 </div>
 </div>

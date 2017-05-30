@@ -18,7 +18,9 @@
 
 {% block content %}
 
-	<section class="title">
+	
+
+<section class="title">
         <div class="container">
             <div class="row-fluid">
                 <div class="span6">
@@ -26,44 +28,56 @@
                 </div>
                 <div class="span6">
                     <ul class="breadcrumb pull-right">
-                        <li><a href="{% url 'knowledge_list' %}">Beranda</a> <span class="divider">/</span></li>
-                        <li class="active">Riwayat Pemeriksaan</li>
+                        <li><a href="{% url 'knowledge_list' %}"><h4>Beranda / </h4></a> </li>
+                        <li class="active"><h5>Riwayat Pemeriksaan</h5></li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
-    <!-- / .title -->     
+    <!-- / .title -->  
 
 
-
-<div class="work-container">
-<div class="container">
-<div class="row">
 
 <div class="gap"></div>
-  <form align="center">
-	      
-	      <input type="number" id="nomorbalita" name="nomorbalita" placeholder="Masukkan Nomor Balita">
-	      <a id="filter-baby" class="btn btn-default">Cari</a>
-		</form>
+  
 
+<section id="recent-works">
+    <div class="container">
+        <div class="center">
+            <h3>Pencarian Riwayat Pemeriksaan</h3>
+            
+        </div>  
 
+        <div class="center">
+        <form>
+    
+      <input type="number" id="nomorbalita" name="nomorbalita" placeholder="Masukkan Nomor Balita">
+      <a id="filter-baby" class="btn btn-warning">  <h5>Cari</h5></a>
+    </form>
+        
+</div>
+    </div>
+
+</section>
 
 
 <section id="about-us" class="container main">
         <div class="row-fluid">
             <div class="span12">
                 <div class="blog">
-
+        <div style="overflow-x:auto;">
+        	<div class="center">
+        		<h2>Pemeriksaan Tinggi Badan</h2>
+        	</div>		        	
 		<table class="customers">
-		<h2>Pemeriksaan Tinggi Badan</h2>
+		
 			<tr>
-		    	<th>Id Baby</th>
-		    	<th>Check</th> 
-		    	<th>Value</th>
-		    	<th>Status</th>
-		    	<th>Date</th>
+		    	<th style="width: 10%">Nomor Balita</th>
+		    	<th style="width: 15%">Pemeriksaan</th> 
+		    	<th style="width: 10%">Nilai</th>
+		    	<th style="width: 15%">Status</th>
+		    	<th style="width: 15%">Tanggal Pemeriksaan</th>
 		  	</tr>
 			{% for item in check_height %}
 			<tr>
@@ -93,17 +107,22 @@
             	{% endif %}
 			{% endfor %}  
 		</table>
-
+		</div>
 
 <div class="gap"></div>
+		
+		<div style="overflow-x:auto;">
+        	<div class="center">
+        		<h2>Pemeriksaan Berat Badan</h2>
+        	</div>		        	
 		<table class="customers">
-		<h2>Pemeriksaan Berat Badan</h2>
+		
 			<tr>
-		    	<th>Id Baby</th>
-		    	<th>Check</th> 
-		    	<th>Value</th>
-		    	<th>Status</th>
-		    	<th>Date</th>
+		    	<th style="width: 10%">Nomor Balita</th>
+		    	<th style="width: 15%">Pemeriksaan</th> 
+		    	<th style="width: 10%">Nilai</th>
+		    	<th style="width: 15%">Status</th>
+		    	<th style="width: 15%">Tanggal Pemeriksaan</th>
 		  	</tr>
 			{% for item in check_weight %}
 			<tr>
@@ -134,15 +153,21 @@
             	{% endif %}
 			{% endfor %}  
 		</table>
+		</div>
 <div class="gap"></div>
+
+		<div style="overflow-x:auto;">
+        	<div class="center">
+        		<h2>Pemeriksaan Lingkar Kepala</h2>
+        	</div>		        	
 		<table class="customers">
-		<h2>Pemeriksaan Lingkar Kepala</h2>
+		
 			<tr>
-		    	<th>Id Baby</th>
-		    	<th>Check</th> 
-		    	<th>Value</th>
-		    	<th>Status</th>
-		    	<th>Date</th>
+		    	<th style="width: 10%">Nomor Balita</th>
+		    	<th style="width: 15%">Pemeriksaan</th> 
+		    	<th style="width: 10%">Nilai</th>
+		    	<th style="width: 15%">Status</th>
+		    	<th style="width: 15%">Tanggal Pemeriksaan</th>
 		  	</tr>
 			{% for item in check_head %}
 			<tr>
@@ -173,15 +198,21 @@
             	{% endif %}
 			{% endfor %}  
 		</table>
+		</div>
 <div class="gap"></div>
+
+		<div style="overflow-x:auto;">
+        	<div class="center">
+        		<h2>Imunisasi</h2>
+        	</div>		        	
 		<table class="customers">
-		<h2>Imunisasi</h2>
+		
 			<tr>
-		    	<th>Id Baby</th>
-		    	<th>Check</th> 
-		    	<th>Value</th>
-		    	<th>Status</th>
-		    	<th>Date</th>
+		    	<th style="width: 10%">Nomor Balita</th>
+		    	<th style="width: 15%">Pemeriksaan</th> 
+		    	<th style="width: 10%">Nama Imunisasi</th>
+		    	<th style="width: 15%">Status</th>
+		    	<th style="width: 15%">Tanggal Pemeriksaan</th>
 		  	</tr>
 			{% for item in check_immunization %}
 			<tr>
@@ -211,6 +242,7 @@
             	{% endif %}
 			{% endfor %}  
 		</table>
+		</div>
 </div>	
 
 
@@ -234,9 +266,7 @@
 		
 	});
 </script>
-</div>
-</div>
-</div>
+
 {% endblock %}
 
 

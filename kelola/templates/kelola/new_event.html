@@ -1,9 +1,27 @@
 {% extends 'kelola/base.html' %}
 
 {% block content %}
-    <h1>New Event</h1>
+
+    <section class="title">
+        <div class="container">
+            <div class="row-fluid">
+                <div class="span6">
+                    <h1>Tambah Kegiatan</h1>
+                </div>
+                <div class="span6">
+                    <ul class="breadcrumb pull-right">
+                        <li><a href="{% url 'knowledge_list' %}"><h3>Beranda / </h3></a> </li>
+                        <li><a href="{% url 'show_kegiatan' %}"><h4>Kelola Kegiatan / </h4></a></li>
+                        <li class="active"><h5>Tambah Kegiatan</h5></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- / .title --> 
     
-		    <form method="POST" class="post-form">{% csrf_token %}
+
+		   <!-- <form method="POST" class="post-form">{% csrf_token %}
 		    <div class="work-container">
     	<div class="container">
     		<div class="row">
@@ -13,5 +31,29 @@
 		          		</div>
     	</div>
     </div>
+    </form> -->
+
+
+    <section id="registration-page" class="container">
+    
+    
+    <form method="POST" class="post-form center">
+    <fieldset class="registration-form center">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-success">Simpan</button>
+     </fieldset>   
     </form>
+    
+</section>
+
+
+<script type="text/javascript">
+    var $j = jQuery.noConflict();
+
+    $j(function(){
+        $j("#id_date_event").datepicker( { dateFormat: 'yy-mm-dd' });
+    });
+    
+</script>
     {% endblock %}

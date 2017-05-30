@@ -1,11 +1,37 @@
 {% extends 'kelola/base.html' %}
 
 {% block content %}
-    <h1>New member</h1>
-    <form method="POST" class="post-form">{% csrf_token %}
+    
+    <section class="title">
+        <div class="container">
+            <div class="row-fluid">
+                <div class="span6">
+                    <h1>Tambah Anggota Balita</h1>
+                </div>
+                <div class="span6">
+                    <ul class="breadcrumb pull-right">
+                        <li><a href="{% url 'knowledge_list' %}"><h3>Beranda / </h3></a> </li>
+                        <li><a href="{% url 'show_anggota' %}"><h4>Kelola Anggota / </h4></a></li>
+                        <li class="active"><h5>Tambah Anggota</h5></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- / .title --> 
+
+    <section id="registration-page" class="container">
+
+    <form method="POST" class="post-form center">
+        <fieldset class="registration-form center">
+        {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="save btn btn-default">Save</button>
+        </fieldset>
     </form>
+
+    </section>
+
     <script type="text/javascript">
     var $j = jQuery.noConflict();
 
