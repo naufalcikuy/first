@@ -45,14 +45,17 @@
 
 	
                 	<div class="blog-item well">
+                	<div class="center">
+          				<h2>Kesehatan</h2>
+        			</div>
                 	<div style="overflow-x:auto;">
 						<table class="customers" width="100%">
-						<h2>Kesehatan</h2>
+						
 							<tr>
-						    	<th style="width: 10%">Category</th>
-						    	<th style="width: 35%">Title</th> 
-						    	<th style="width: 35%">Text</th>
-						    	<th style="width: 20%">Action</th>
+						    	<th style="width: 10%">Kategori</th>
+						    	<th style="width: 35%">Judul</th> 
+						    	<th style="width: 35%">Isi</th>
+						    	<th style="width: 20%">Tindakan</th>
 						  	</tr>
 							{% for item in knowledges_health %}
 							<tr>
@@ -74,15 +77,18 @@
 
 
                 	<div class="blog-item well">
+                	<div class="center">
+          				<h2>Pertumbuhan</h2>
+        			</div>
                 	<div style="overflow-x:auto;">
 
 						<table class="customers" width="100%">
-						<h2>Pertumbuhan</h2>
+						
 							<tr>
-						    	<th style="width: 10%">Category</th>
-						    	<th style="width: 35%">Title</th> 
-						    	<th style="width: 35%">Text</th>
-						    	<th style="width: 20%">Action</th>
+						    	<th style="width: 10%">Kategori</th>
+						    	<th style="width: 35%">Judul</th> 
+						    	<th style="width: 35%">Isi</th>
+						    	<th style="width: 20%">Tindakan</th>
 						  	</tr>
 							{% for item in knowledges_growing %}
 							<tr>
@@ -104,14 +110,17 @@
 	
                 
                 	<div class="blog-item well">
+                	<div class="center">
+          				<h2>Perkembangan</h2>
+        			</div>
                 	<div style="overflow-x:auto;">
 						<table class="customers" width=100%>
-						<h2>Perkembangan</h2>
+					
 							<tr>
-						    	<th style="width: 10%">Category</th>
-						    	<th style="width: 35%">Title</th> 
-						    	<th style="width: 35%">Text</th>
-						    	<th style="width: 20%">Action</th>
+						    	<th style="width: 10%">Kategori</th>
+						    	<th style="width: 35%">Judul</th> 
+						    	<th style="width: 35%">Isi</th>
+						    	<th style="width: 20%">Tindakan</th>
 						  	</tr>
 							{% for item in knowledges_development %}
 							<tr>
@@ -132,14 +141,17 @@
 
 
                 <div class="blog-item well">
+               		<div class="center">
+          				<h2>Imunisasi</h2>
+        			</div>
                 	<div style="overflow-x:auto;">
                 		<table class="customers" width=100%>
-						<h2>Imunisasi</h2>
+					
 							<tr>
-						    	<th style="width: 10%">Category</th>
-						    	<th style="width: 35%">Title</th> 
-						    	<th style="width: 35%">Text</th>
-						    	<th style="width: 20%">Action</th>
+						    	<th style="width: 10%">Kategori</th>
+						    	<th style="width: 35%">Judul</th> 
+						    	<th style="width: 35%">Isi</th>
+						    	<th style="width: 20%">Tindakan</th>
 						  	</tr>
 							{% for item in knowledges_immunization %}
 							<tr>
@@ -182,8 +194,8 @@
 			      <div class="modal-body">
 			        <p> Apakah anda yakin menghapus pengetahuan untuk
 								<h1>id: {{item.id}}</h1>
-								<h1>title: {{item.title}}</h1>
-								<h1>text: {{item.text}}</h1></p>
+								<h1>Judul: {{item.title}}</h1>
+								<h1>Isi: {{item.text}}</h1></p>
 			      </div>
 			      <div class="modal-footer">
 				      	<a href="{% url 'delete_knowledge' item.id %}"><button type="button" class="btn btn-danger">Hapus</button></a>

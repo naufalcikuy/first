@@ -100,118 +100,120 @@ class History (models.Model):
         if self.baby.jenis_kelamin == 'Laki-laki':
             if self.check == 'height':
                 if self.baby.umur_bulan_bayi() == 36 or self.baby.umur_bulan_bayi() == 35 or self.baby.umur_bulan_bayi() == 34:
-                    if self.value == 18:
+                    if self.value == 105:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 33 or self.baby.umur_bulan_bayi() == 32 or self.baby.umur_bulan_bayi() == 31:
-                    if self.value == 17:
+                    if self.value == 100:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 30 or self.baby.umur_bulan_bayi() == 29 or self.baby.umur_bulan_bayi() == 28:
-                    if self.value == 16:
+                    if self.value == 95:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 27 or self.baby.umur_bulan_bayi() == 26 or self.baby.umur_bulan_bayi() == 25:
-                    if self.value == 20:
+                    if self.value == 90:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 24 or self.baby.umur_bulan_bayi() == 23 or self.baby.umur_bulan_bayi() == 22:
-                    if self.value == 10:
+                    if self.value == 85:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 21 or self.baby.umur_bulan_bayi() == 20 or self.baby.umur_bulan_bayi() == 19:
-                    if self.value == 8:
+                    if self.value == 80:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 18 or self.baby.umur_bulan_bayi() == 17 or self.baby.umur_bulan_bayi() == 16:
-                    if self.value == 5:
+                    if self.value == 75:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 15 or self.baby.umur_bulan_bayi() == 14 or self.baby.umur_bulan_bayi() == 13:
-                    if self.value == 3:
+                    if self.value == 70:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 12 or self.baby.umur_bulan_bayi() == 11 or self.baby.umur_bulan_bayi() == 10:
-                    if self.value == 3:
+                    if self.value == 65:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'   
                 if self.baby.umur_bulan_bayi() == 9 or self.baby.umur_bulan_bayi() == 8 or self.baby.umur_bulan_bayi() == 7:
-                    if self.value == 3:
+                    if self.value == 60:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'   
                 if self.baby.umur_bulan_bayi() == 6 or self.baby.umur_bulan_bayi() == 5 or self.baby.umur_bulan_bayi() == 4:
-                    if self.value == 3:
+                    if self.value == 55:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'      
                 if self.baby.umur_bulan_bayi() == 3 or self.baby.umur_bulan_bayi() == 2 or self.baby.umur_bulan_bayi() == 1:
-                    if self.value == 3:
+                    if self.value == 50:
                         self.status = 'ideal'
                     else:
-                        self.status ='tidak ideal'      
+                        self.status ='tidak ideal'  
+                
+
             if self.check == 'weight':
                 if self.baby.umur_bulan_bayi() == 36 or self.baby.umur_bulan_bayi() == 35 or self.baby.umur_bulan_bayi() == 34:
-                    if self.value == 18:
-                        self.status = 'ideal'
-                    else:
-                        self.status ='tidak ideal'
-                if self.baby.umur_bulan_bayi() == 33 or self.baby.umur_bulan_bayi() == 32 or self.baby.umur_bulan_bayi() == 31:
                     if self.value == 17:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
-                if self.baby.umur_bulan_bayi() == 30 or self.baby.umur_bulan_bayi() == 29 or self.baby.umur_bulan_bayi() == 28:
+                if self.baby.umur_bulan_bayi() == 33 or self.baby.umur_bulan_bayi() == 32 or self.baby.umur_bulan_bayi() == 31:
                     if self.value == 16:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
+                if self.baby.umur_bulan_bayi() == 30 or self.baby.umur_bulan_bayi() == 29 or self.baby.umur_bulan_bayi() == 28:
+                    if self.value == 14:
+                        self.status = 'ideal'
+                    else:
+                        self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 27 or self.baby.umur_bulan_bayi() == 26 or self.baby.umur_bulan_bayi() == 25:
-                    if self.value == 20:
+                    if self.value == 13:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 24 or self.baby.umur_bulan_bayi() == 23 or self.baby.umur_bulan_bayi() == 22:
-                    if self.value == 10:
+                    if self.value == 12:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 21 or self.baby.umur_bulan_bayi() == 20 or self.baby.umur_bulan_bayi() == 19:
-                    if self.value == 8:
+                    if self.value == 11:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 18 or self.baby.umur_bulan_bayi() == 17 or self.baby.umur_bulan_bayi() == 16:
-                    if self.value == 5:
+                    if self.value == 10:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 15 or self.baby.umur_bulan_bayi() == 14 or self.baby.umur_bulan_bayi() == 13:
-                    if self.value == 3:
+                    if self.value == 9:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 12 or self.baby.umur_bulan_bayi() == 11 or self.baby.umur_bulan_bayi() == 10:
-                    if self.value == 3:
+                    if self.value == 7:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'   
                 if self.baby.umur_bulan_bayi() == 9 or self.baby.umur_bulan_bayi() == 8 or self.baby.umur_bulan_bayi() == 7:
-                    if self.value == 3:
+                    if self.value == 6:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'   
                 if self.baby.umur_bulan_bayi() == 6 or self.baby.umur_bulan_bayi() == 5 or self.baby.umur_bulan_bayi() == 4:
-                    if self.value == 3:
+                    if self.value == 5:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'      
@@ -219,184 +221,187 @@ class History (models.Model):
                     if self.value == 3:
                         self.status = 'ideal'
                     else:
-                        self.status ='tidak ideal'      
+                        self.status ='tidak ideal'   
+                
+
             if self.check == 'headcircumference':
                 if self.baby.umur_bulan_bayi() == 36 or self.baby.umur_bulan_bayi() == 35 or self.baby.umur_bulan_bayi() == 34:
-                    if self.value == 18:
+                    if self.value == 51:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 33 or self.baby.umur_bulan_bayi() == 32 or self.baby.umur_bulan_bayi() == 31:
-                    if self.value == 17:
+                    if self.value == 50:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 30 or self.baby.umur_bulan_bayi() == 29 or self.baby.umur_bulan_bayi() == 28:
-                    if self.value == 16:
+                    if self.value == 50:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 27 or self.baby.umur_bulan_bayi() == 26 or self.baby.umur_bulan_bayi() == 25:
-                    if self.value == 20:
+                    if self.value == 50:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 24 or self.baby.umur_bulan_bayi() == 23 or self.baby.umur_bulan_bayi() == 22:
-                    if self.value == 10:
+                    if self.value == 50:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 21 or self.baby.umur_bulan_bayi() == 20 or self.baby.umur_bulan_bayi() == 19:
-                    if self.value == 8:
+                    if self.value == 49:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 18 or self.baby.umur_bulan_bayi() == 17 or self.baby.umur_bulan_bayi() == 16:
-                    if self.value == 5:
+                    if self.value == 49:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 15 or self.baby.umur_bulan_bayi() == 14 or self.baby.umur_bulan_bayi() == 13:
-                    if self.value == 3:
+                    if self.value == 48:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 12 or self.baby.umur_bulan_bayi() == 11 or self.baby.umur_bulan_bayi() == 10:
-                    if self.value == 3:
+                    if self.value == 47:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'   
                 if self.baby.umur_bulan_bayi() == 9 or self.baby.umur_bulan_bayi() == 8 or self.baby.umur_bulan_bayi() == 7:
-                    if self.value == 3:
+                    if self.value == 46:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'   
                 if self.baby.umur_bulan_bayi() == 6 or self.baby.umur_bulan_bayi() == 5 or self.baby.umur_bulan_bayi() == 4:
-                    if self.value == 3:
+                    if self.value == 44:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'      
                 if self.baby.umur_bulan_bayi() == 3 or self.baby.umur_bulan_bayi() == 2 or self.baby.umur_bulan_bayi() == 1:
-                    if self.value == 3:
+                    if self.value == 41:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
-
+                
         if self.baby.jenis_kelamin == 'Perempuan':
             if self.check == 'height':
                 if self.baby.umur_bulan_bayi() == 36 or self.baby.umur_bulan_bayi() == 35 or self.baby.umur_bulan_bayi() == 34:
-                    if self.value == 18:
+                    if self.value == 105:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 33 or self.baby.umur_bulan_bayi() == 32 or self.baby.umur_bulan_bayi() == 31:
-                    if self.value == 17:
+                    if self.value == 100:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 30 or self.baby.umur_bulan_bayi() == 29 or self.baby.umur_bulan_bayi() == 28:
-                    if self.value == 16:
+                    if self.value == 95:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 27 or self.baby.umur_bulan_bayi() == 26 or self.baby.umur_bulan_bayi() == 25:
-                    if self.value == 20:
+                    if self.value == 90:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 24 or self.baby.umur_bulan_bayi() == 23 or self.baby.umur_bulan_bayi() == 22:
-                    if self.value == 10:
+                    if self.value == 85:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 21 or self.baby.umur_bulan_bayi() == 20 or self.baby.umur_bulan_bayi() == 19:
-                    if self.value == 8:
+                    if self.value == 80:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 18 or self.baby.umur_bulan_bayi() == 17 or self.baby.umur_bulan_bayi() == 16:
-                    if self.value == 5:
+                    if self.value == 75:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 15 or self.baby.umur_bulan_bayi() == 14 or self.baby.umur_bulan_bayi() == 13:
-                    if self.value == 3:
+                    if self.value == 70:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 12 or self.baby.umur_bulan_bayi() == 11 or self.baby.umur_bulan_bayi() == 10:
-                    if self.value == 3:
+                    if self.value == 65:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'   
                 if self.baby.umur_bulan_bayi() == 9 or self.baby.umur_bulan_bayi() == 8 or self.baby.umur_bulan_bayi() == 7:
-                    if self.value == 3:
+                    if self.value == 60:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'   
                 if self.baby.umur_bulan_bayi() == 6 or self.baby.umur_bulan_bayi() == 5 or self.baby.umur_bulan_bayi() == 4:
-                    if self.value == 3:
+                    if self.value == 55:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'      
                 if self.baby.umur_bulan_bayi() == 3 or self.baby.umur_bulan_bayi() == 2 or self.baby.umur_bulan_bayi() == 1:
-                    if self.value == 3:
+                    if self.value == 50:
                         self.status = 'ideal'
                     else:
-                        self.status ='tidak ideal'      
+                        self.status ='tidak ideal'   
+
             if self.check == 'weight':
                 if self.baby.umur_bulan_bayi() == 36 or self.baby.umur_bulan_bayi() == 35 or self.baby.umur_bulan_bayi() == 34:
-                    if self.value == 18:
-                        self.status = 'ideal'
-                    else:
-                        self.status ='tidak ideal'
-                if self.baby.umur_bulan_bayi() == 33 or self.baby.umur_bulan_bayi() == 32 or self.baby.umur_bulan_bayi() == 31:
-                    if self.value == 17:
-                        self.status = 'ideal'
-                    else:
-                        self.status ='tidak ideal'
-                if self.baby.umur_bulan_bayi() == 30 or self.baby.umur_bulan_bayi() == 29 or self.baby.umur_bulan_bayi() == 28:
                     if self.value == 16:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
+                if self.baby.umur_bulan_bayi() == 33 or self.baby.umur_bulan_bayi() == 32 or self.baby.umur_bulan_bayi() == 31:
+                    if self.value == 15:
+                        self.status = 'ideal'
+                    else:
+                        self.status ='tidak ideal'
+                if self.baby.umur_bulan_bayi() == 30 or self.baby.umur_bulan_bayi() == 29 or self.baby.umur_bulan_bayi() == 28:
+                    if self.value == 14:
+                        self.status = 'ideal'
+                    else:
+                        self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 27 or self.baby.umur_bulan_bayi() == 26 or self.baby.umur_bulan_bayi() == 25:
-                    if self.value == 20:
+                    if self.value == 13:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 24 or self.baby.umur_bulan_bayi() == 23 or self.baby.umur_bulan_bayi() == 22:
-                    if self.value == 10:
+                    if self.value == 12:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 21 or self.baby.umur_bulan_bayi() == 20 or self.baby.umur_bulan_bayi() == 19:
-                    if self.value == 8:
+                    if self.value == 11:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 18 or self.baby.umur_bulan_bayi() == 17 or self.baby.umur_bulan_bayi() == 16:
-                    if self.value == 5:
+                    if self.value == 10:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 15 or self.baby.umur_bulan_bayi() == 14 or self.baby.umur_bulan_bayi() == 13:
-                    if self.value == 3:
+                    if self.value == 9:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 12 or self.baby.umur_bulan_bayi() == 11 or self.baby.umur_bulan_bayi() == 10:
-                    if self.value == 3:
+                    if self.value == 7:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'   
                 if self.baby.umur_bulan_bayi() == 9 or self.baby.umur_bulan_bayi() == 8 or self.baby.umur_bulan_bayi() == 7:
-                    if self.value == 3:
+                    if self.value == 5:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'   
                 if self.baby.umur_bulan_bayi() == 6 or self.baby.umur_bulan_bayi() == 5 or self.baby.umur_bulan_bayi() == 4:
-                    if self.value == 3:
+                    if self.value == 4:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'      
@@ -404,68 +409,71 @@ class History (models.Model):
                     if self.value == 3:
                         self.status = 'ideal'
                     else:
-                        self.status ='tidak ideal'      
+                        self.status ='tidak ideal'   
+               
+
             if self.check == 'headcircumference':
                 if self.baby.umur_bulan_bayi() == 36 or self.baby.umur_bulan_bayi() == 35 or self.baby.umur_bulan_bayi() == 34:
-                    if self.value == 18:
+                    if self.value == 50:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 33 or self.baby.umur_bulan_bayi() == 32 or self.baby.umur_bulan_bayi() == 31:
-                    if self.value == 17:
+                    if self.value == 49:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 30 or self.baby.umur_bulan_bayi() == 29 or self.baby.umur_bulan_bayi() == 28:
-                    if self.value == 16:
+                    if self.value == 49:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 27 or self.baby.umur_bulan_bayi() == 26 or self.baby.umur_bulan_bayi() == 25:
-                    if self.value == 20:
+                    if self.value == 49:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 24 or self.baby.umur_bulan_bayi() == 23 or self.baby.umur_bulan_bayi() == 22:
-                    if self.value == 10:
+                    if self.value == 48:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 21 or self.baby.umur_bulan_bayi() == 20 or self.baby.umur_bulan_bayi() == 19:
-                    if self.value == 8:
+                    if self.value == 47:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 18 or self.baby.umur_bulan_bayi() == 17 or self.baby.umur_bulan_bayi() == 16:
-                    if self.value == 5:
+                    if self.value == 47:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 15 or self.baby.umur_bulan_bayi() == 14 or self.baby.umur_bulan_bayi() == 13:
-                    if self.value == 3:
+                    if self.value == 47:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
                 if self.baby.umur_bulan_bayi() == 12 or self.baby.umur_bulan_bayi() == 11 or self.baby.umur_bulan_bayi() == 10:
-                    if self.value == 3:
+                    if self.value == 46:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'   
                 if self.baby.umur_bulan_bayi() == 9 or self.baby.umur_bulan_bayi() == 8 or self.baby.umur_bulan_bayi() == 7:
-                    if self.value == 3:
+                    if self.value == 45:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'   
                 if self.baby.umur_bulan_bayi() == 6 or self.baby.umur_bulan_bayi() == 5 or self.baby.umur_bulan_bayi() == 4:
-                    if self.value == 3:
+                    if self.value == 43:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'      
                 if self.baby.umur_bulan_bayi() == 3 or self.baby.umur_bulan_bayi() == 2 or self.baby.umur_bulan_bayi() == 1:
-                    if self.value == 3:
+                    if self.value == 40:
                         self.status = 'ideal'
                     else:
                         self.status ='tidak ideal'
+                
               
 class Event (models.Model):
     title = models.CharField(max_length=50)
